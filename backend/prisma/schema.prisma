@@ -1,6 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -8,4 +5,122 @@ generator client {
 datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
+}
+
+model User{
+  id        Int      @id @default(autoincrement())
+  login     String   @unique
+  nickName  String   @unique @map("nick_name")
+  rank      Int      @default(0)
+  exp       Int      @default(0)
+  photo     String?   
+  friends   Friends[] @relation("friends")
+  friendsBy Friends[] @relation("friends_by")
+  messages  Messages[]
+  createdAt DateTime @default(now()) @map("created_at")
+  groups_user    Groups[] @relation("user")
+  groups_admin   Groups[] @relation("admin")
+  winnerHistory History[] @relation("winner")
+  loserHistory History[] @relation("loser")
+  achievement Achievement[]
+  fromNotif  Notification[] @relation("from")
+  toNotif  Notification[] @relation("to")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")  
+  @@map("users")
+}
+
+model Groups{
+  id        Int      @id @default(autoincrement())
+  name      String   @unique
+  type      GroupType
+  password  String?
+  users     User[] @relation("user")
+  admins    User[] @relation("admin")
+  messages  Messages[]
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")  
+  @@map("groups")
+}
+
+
+model Friends {
+  id        Int      @id @default(autoincrement())
+  type      TypeFriend
+  userId    Int
+  user      User @relation("friends",fields: [userId], references: [id])
+  userFriendId Int
+  userBy     User @relation("friends_by",fields: [userFriendId], references: [id])
+
+}
+
+model Messages{
+  id        Int      @id @default(autoincrement())
+  content   String
+  groupId   Int @map("group_id")
+  group     Groups  @relation(fields: [groupId], references: [id])
+  userId    Int @map("user_id")
+  user      User @relation(fields: [userId], references: [id])
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")  
+  @@map("messages")
+}
+
+
+model History{
+  id        Int      @id @default(autoincrement())
+  winnerId  Int 
+  userWinner      User @relation("winner",fields: [winnerId], references: [id])  
+  loserId   Int
+  userLoser      User @relation("loser",fields: [loserId], references: [id])  
+}
+
+
+model Notification {
+  id        Int      @id @default(autoincrement())
+  description String @db.VarChar(250)
+  title NotificationTitle
+  fromId Int
+  fromNotif  User @relation("from",fields: [fromId], references: [id])
+  toId   Int
+  toNotif User @relation("to",fields: [toId], references: [id])
+
+
+}
+model Achievement{
+    id        Int      @id @default(autoincrement())
+    userId Int
+    user      User @relation(fields: [userId], references: [id])
+    name String    @db.VarChar(100)
+    status TypeAchievment
+    description String @db.VarChar(250)
+    // ......
+    @@unique([userId,name])
+}
+
+
+enum NotificationTitle{
+  JOINGROUP
+  JOINGAME
+  JOINUSER
+}
+enum TypeFriend{
+  Friend
+  INVITATION
+  BLOCKED
+}
+enum TypeAchievment{
+  DONE
+  INPROGRESS
+}
+
+enum GroupType{
+  PUBLIC
+  PRIVATE
+  PROTECTED
+  DM
+}
+
+enum GroupUserType{
+  ADMIN
+  MEMBER
 }
