@@ -1,6 +1,6 @@
 version: "3.7"
 services:
-  postges:
+  postgres:
     image: postgres:11.1
     restart: always
     environment:
@@ -11,3 +11,32 @@ services:
       - 5432:5432
     volumes:
       - ./postgres-data:/var/lib/postgresql/data
+  
+  frontend:
+    build: 
+      context: ./front-end
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+    volumes:
+      - ./front-end/src:/app/src
+    restart: always
+    networks:
+      - default
+  backend:
+    build: 
+      context: ./back-end
+      dockerfile: Dockerfile
+    container_name: backend
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@postgres:5432/transcendence?schema=public
+    depends_on:
+      - postgres
+    ports:
+      - 3000:3000
+    restart: always
+    networks:
+      - default
