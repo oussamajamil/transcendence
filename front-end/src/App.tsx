@@ -19,6 +19,7 @@ import FriendsPage from './pages/friends';
 import HomePage from './pages/home';
 import ProfilePage from './pages/profile';
 import MessagesPage from './pages/messages';
+import Login from './pages/login';
 
 
 
@@ -59,19 +60,18 @@ const RouteData = [{
     component: <MessagesPage/>,
     logo:<MessagesIcon/>
   },
-  // {
-  //   path:'/settings',
-  //   title: 'Settings',
-  //   component: <Home/>,
-  //   logo:<SettingsIcon/>
-  // },
 ]
 
 function App() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="flex min-h-[100vh] min-w-[100vw] overflow-auto">
+      <div className={`flex min-h-[100vh] min-w-[100vw] overflow-auto ${
+        window.location.pathname === '/login' ? 'background' : ''
+      }`}>
+        {
+          window.location.pathname != '/login' && 
+          (
         <div className="sidbar min-w-[6rem] w-[5%] bg-white  h-full  min-h-screen">
          <div className="logo h-[5rem]  p-2 flex ">
             <Logo className="w-[8rem]"/>
@@ -96,8 +96,13 @@ function App() {
             ))}
           </div>
         </div>
+          )
+        }
         <div className='w-full  flex flex-col'>
-          <div className='h-[5rem] w-ful flex gap-4 items-center ml-auto mr-5'>
+        {
+          window.location.pathname != '/login' && 
+          (
+            <div className='h-[5rem] w-ful flex gap-4 items-center ml-auto mr-5'>
             <Button variant="text" className='p-2'>
               <SearchIcon/>
             </Button>
@@ -110,11 +115,16 @@ function App() {
               />
             </Button>
           </div>
+          )
+        }
+          
           <div className='flex-1 p-4'>
             <Routes>
               {RouteData.map((item, index) => (
                 <Route key={index} path={item.path} element={item.component} />
+               
               ))}
+               <Route path={"/login"} element={<Login/>} />
             </Routes>
           </div>
         </div>
