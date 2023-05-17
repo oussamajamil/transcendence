@@ -1,0 +1,14 @@
+
+.active{
+  transition: all 0.3s ease-in-out;
+  background-color: #F4F6FF;
+  &::before{
+    content: "";
+    position: absolute;
+    width: 6px;
+    height: 100%;
+    background-color: #3F51B5;
+    left: calc(6rem - 4px);
+    border-radius: 10px 0px 0px 10px;
+  }
+}

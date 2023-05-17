@@ -1,0 +1,25 @@
+//tailwindcss
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.debug{
+  border: 1px solid red;
+  & > *{
+    border: 1px solid blue;
+    & > *{
+      border: 1px solid green;
+    }
+  }
+}
+
+*{
+  margin:0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body{
+  // background-color: #A3B5BF;
+  @apply bg-[#F4F5F7];
+}
