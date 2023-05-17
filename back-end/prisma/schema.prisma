@@ -7,118 +7,167 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Relation {
+  id              String        @id @default(uuid())
+
+  type            RelationType
+  user            User          @relation("relations", fields: [userId], references: [id])
+  userId          String        @map("user_id")
+  relationWith    User          @relation("relation_with", fields: [relationWithId], references: [id])
+  relationWithId  String        @map("relation_with_id")
+
+  createdAt       DateTime      @default(now()) @map("created_at")
+
+  @@map("relations")
+}
+
+model MatchHistory {
+  id          String      @id @default(uuid())
+  winnerScore Int         @map("winner_score")
+  loserScore  Int         @map("loser_score")
+
+  winner      User        @relation("winner", fields: [winnerId], references: [id])
+  winnerId    String      @map("winner_id")
+  loser       User        @relation("loser", fields: [loserId], references: [id])
+  loserId     String      @map("loser_id")
+
+  createdAt   DateTime    @default(now()) @map("created_at")
+
+  @@map("match_history")
+}
+
+model Channel {
+  id        String         @id @default(uuid())
+  name      String         // @unique
+  password  String?
+
+  messages  Message[]     @relation("channel_messages")
+  members   Membership[]  @relation("members")
+  type      ChannelType
+  owner     User?         @relation("channel_owner",fields: [ownerId], references: [id])
+  ownerId   String?       @map("owner_id")
+
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")
+
+  @@map("channels")
+}
+
+model Membership {
+  user        User            @relation("channel_member",fields: [userId], references: [id])
+  userId      String          @map("user_id")
+  channel     Channel         @relation("members",fields: [channelId], references: [id])
+  channelId   String          @map("channel_id")
+  type        MembershipType
+  status      MembershipStatus
+
+  @@id([userId, channelId])
+  @@map("memberships")
+}
+
 model User {
-  id           Int           @id @default(autoincrement())
-  login        String        @unique
-  exp          Int           @default(0)
-  avatar       String?
-  friends      Friend[]      @relation("friends")
-  friendsBy    Friend[]      @relation("friends_by")
-  messages     Message[]
-  createdAt    DateTime      @default(now()) @map("created_at")
-  wonHistory   History[]     @relation("winner")
-  lostHistory  History[]     @relation("loser")
-  achievements Achievement[]
-  updatedAt    DateTime      @default(now()) @updatedAt @map("updated_at")
-  groups       UserGroup[]
-  ownedGroup   Group[]
+  id              String              @id @default(uuid())
+  login           String              @unique
+  avatar          String?
+  level           Int                 @default(1)
+  exp             Int                 @default(0)
+  points          Int                 @default(0)
+  
+  relations       Relation[]          @relation("relations")
+  relationsWith   Relation[]          @relation("relation_with")
+  winHistory      MatchHistory[]      @relation("winner")
+  loseHistory     MatchHistory[]      @relation("loser")
+  ownedChannels   Channel[]           @relation("channel_owner")
+  membership      Membership[]        @relation("channel_member")
+  messages        Message[]           @relation("user_messages")
+  achievements    AchievementProgress[]
+  rank            rank                @relation(fields: [rankId], references: [id])
+  rankId          String              @map("rank_id")
+
+  createdAt       DateTime            @default(now()) @map("created_at")
 
   @@map("users")
 }
 
-model UserGroup {
-  user     User          @relation(fields: [userId], references: [id])
-  userId   Int
-  group    Group         @relation(fields: [groupsId], references: [id])
-  groupsId Int
-  type     GroupUserType
-
-  @@id([userId, groupsId])
-  @@map("user_group")
-}
-
-model Group {
-  id        Int         @id @default(autoincrement())
-  name      String      @unique
-  type      GroupType
-  password  String?
-  messages  Message[]
-  createdAt DateTime    @default(now()) @map("created_at")
-  updatedAt DateTime    @default(now()) @updatedAt @map("updated_at")
-  userGroup UserGroup[]
-  owner     User?       @relation(fields: [ownerId], references: [id])
-  ownerId   Int?
-
-  @@map("groups")
-}
-
-model Friend {
-  id         Int        @id @default(autoincrement())
-  type       TypeFriend
-  friendId   Int        @map("friend_id")
-  friend     User       @relation("friends", fields: [friendId], references: [id])
-  friendById Int
-  friendBy   User       @relation("friends_by", fields: [friendById], references: [id])
-}
-
 model Message {
-  id        Int      @id @default(autoincrement())
-  content   String
-  groupId   Int      @map("group_id")
-  group     Group    @relation(fields: [groupId], references: [id])
-  userId    Int      @map("user_id")
-  user      User     @relation(fields: [userId], references: [id])
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+  id          String      @id @default(uuid())
+  content     String
+
+  channel     Channel     @relation("channel_messages",fields: [groupId], references: [id])
+  groupId     String      @map("group_id")
+  user        User        @relation("user_messages",fields: [userId], references: [id])
+  userId      String      @map("user_id")
+
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @default(now()) @updatedAt @map("updated_at")
 
   @@map("messages")
 }
 
-model History {
-  id          Int      @id @default(autoincrement())
-  winnerId    Int
-  winner      User     @relation("winner", fields: [winnerId], references: [id])
-  loserId     Int
-  loser       User     @relation("loser", fields: [loserId], references: [id])
-  winnerScore Int
-  loserScore  Int
-  createdAt   DateTime @default(now()) @map("created_at")
-
-  @@map("history")
-}
-
 model Achievement {
-  id          Int            @id @default(autoincrement())
-  userId      Int
-  user        User           @relation(fields: [userId], references: [id])
-  name        String         @db.VarChar(100)
-  status      TypeAchievment
-  description String         @db.VarChar(250)
-  createdAt   DateTime       @default(now()) @map("created_at")
+  id          String            @id @default(uuid())
+  name        String            @db.VarChar(100)
+  mission     String            @db.VarChar(250)
 
-  @@unique([userId, name])
+  users       AchievementProgress[]           
+
+  createdAt   DateTime          @default(now()) @map("created_at")
+
   @@map("achievements")
 }
 
-enum TypeFriend {
-  Friend
-  INVITATION
+model AchievementProgress {
+  id              String              @id @default(uuid())
+
+  status          AchievementStatus
+  user            User                @relation(fields: [userId], references: [id])
+  userId          String              @map("user_id")
+  achievement     Achievement         @relation(fields: [achievementId], references: [id])
+  achievementId   String              @map("achievement_id")
+
+  createdAt       DateTime                @default(now()) @map("created_at")
+
+  @@map("achievement_progress")
+}
+
+model rank{
+  id String @id @default(uuid())
+  name String @unique
+  requiredPoints Int @map("required_points")
+  emblem String? 
+  border String?
+
+  users User[]
+
+  @@map("ranks")
+}
+
+enum RelationType {
+  FRIEND
+  PENDING
   BLOCKED
 }
 
-enum TypeAchievment {
+enum AchievementStatus {
   DONE
   INPROGRESS
 }
 
-enum GroupType {
+enum ChannelType {
   PUBLIC
   PRIVATE
   PROTECTED
   DM
 }
 
-enum GroupUserType {
+enum MembershipType {
   ADMIN
   MEMBER
+}
+
+enum MembershipStatus {
+  ACTIVE
+  SUSPENDED
+  KICKED
+  MUTED
 }
