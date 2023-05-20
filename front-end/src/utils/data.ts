@@ -8,6 +8,7 @@ export const player1: userType = {
   avatar: "test.png",
   login: "player1",
   rank: "silver",
+  level: 15,
   winHistory: history1,
   loseHistory: history2,
 };
@@ -17,6 +18,7 @@ export const player2: userType = {
   avatar: "test.png",
   login: "player2",
   rank: "gold",
+  level: 20,
   winHistory: history2,
   loseHistory: history1,
 };

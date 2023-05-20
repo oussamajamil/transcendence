@@ -11,6 +11,7 @@ export type userType = {
   id: string;
   login: string;
   avatar: string;
+  level?: number;
 
   winHistory: matchHistoryType[];
   loseHistory: matchHistoryType[];
