@@ -1,7 +1,10 @@
-import { matchHistoryType, userType } from "./types";
+import { matchHistoryType, userType, relationsType } from "./types";
 
 const history1: matchHistoryType[] = [];
 const history2: matchHistoryType[] = [];
+
+const relations: relationsType[] = [];
+const relationsWith: relationsType[] = [];
 
 export const player1: userType = {
   id: "1",
@@ -9,6 +12,8 @@ export const player1: userType = {
   login: "player1",
   rank: "silver",
   level: 15,
+  relations: relations,
+  relationsWith: relationsWith,
   winHistory: history1,
   loseHistory: history2,
 };
@@ -19,6 +24,8 @@ export const player2: userType = {
   login: "player2",
   rank: "gold",
   level: 20,
+  relations: relationsWith,
+  relationsWith: relations,
   winHistory: history2,
   loseHistory: history1,
 };
@@ -141,4 +148,95 @@ history2.push({
   winnerScore: 11,
   loserScore: 9,
   createdAt: new Date(),
+});
+
+relations.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "FRIEND",
+  user: player1,
+  relationWith: player2,
+});
+
+relations.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "BLOCKED",
+  user: player1,
+  relationWith: player2,
+});
+
+relations.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "BLOCKED",
+  user: player1,
+  relationWith: player2,
+});
+
+relations.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "FRIEND",
+  user: player1,
+  relationWith: player2,
+});
+
+relations.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "FRIEND",
+  user: player1,
+  relationWith: player2,
+});
+
+relations.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "BLOCKED",
+  user: player1,
+  relationWith: player2,
+});
+
+relations.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "FRIEND",
+  user: player1,
+  relationWith: player2,
+});
+
+relations.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "FRIEND",
+  user: player1,
+  relationWith: player2,
+});
+
+relationsWith.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "FRIEND",
+  user: player2,
+  relationWith: player1,
+});
+
+relationsWith.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "BLOCKED",
+  user: player2,
+  relationWith: player1,
+});
+
+relationsWith.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "FRIEND",
+  user: player2,
+  relationWith: player1,
+});
+
+relationsWith.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "FRIEND",
+  user: player2,
+  relationWith: player1,
+});
+
+relationsWith.push({
+  id: (new Date().getTime() + Math.random() * 1000).toString(),
+  type: "FRIEND",
+  user: player2,
+  relationWith: player1,
 });
