@@ -1,0 +1,43 @@
+
+
+
+
+.container{
+
+    border: 1px solid #BACCFD;
+    // height: 7rem;
+
+    .chat-img{
+
+
+    }
+    .text{
+
+
+        .name{
+            font-family: 'Poppins';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 15px;
+            text-align: center;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;;
+            color: #000000;
+        }
+        .msg{
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 600;
+            font-size: 10px;
+            line-height: 7px;
+            text-align: center;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;
+
+            color: #A9B0D7;
+
+        }
+
+    }
+}
