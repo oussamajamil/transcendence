@@ -2,8 +2,7 @@ import React from "react";
 import "./conversationList.scss";
 import { ReactComponent as ConvImage } from "../../assets/hero5.svg";
 import { ReactComponent as Online } from "../../assets/online.svg";
-import { Avatar, Button } from "@material-tailwind/react";
-
+import {Avatar} from 'rsuite';
 interface Props {
   id: number;
   name: string;

@@ -2,7 +2,7 @@ import React from 'react'
 import Lottie from 'react-lottie';
 import { ReactComponent as Welcome } from '../../assets/welcome.svg';
 import loginAnimations from "../../assets/lottie/login.json"
-import { Button } from '@material-tailwind/react';
+import { Button } from 'rsuite';
 import {ReactComponent as Intra} from '../../assets/42Icons.svg';
 import {ReactComponent as Google} from '../../assets/google.svg';
 function Login() {

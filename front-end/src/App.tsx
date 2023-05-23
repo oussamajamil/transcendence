@@ -6,6 +6,7 @@ import {
   Routes,
   useNavigate,
 } from "react-router-dom";
+import { Button, Avatar } from 'rsuite';
 import { motion } from "framer-motion";
 import { ReactComponent as Logo } from "./assets/logo.svg";
 import { ReactComponent as DashbordIcon } from "./assets/dashbord.svg";
@@ -16,7 +17,6 @@ import { ReactComponent as GamesIcon } from "./assets/game.svg";
 import { ReactComponent as MessagesIcon } from "./assets/messages.svg";
 import { ReactComponent as SearchIcon } from "./assets/search.svg";
 import { ReactComponent as NotificationIcon } from "./assets/notification.svg";
-import { Avatar, Button, IconButton } from "@material-tailwind/react";
 import GamePage from "./pages/games";
 import HistoryPage from "./pages/history";
 import FriendsPage from "./pages/friends";
@@ -104,13 +104,13 @@ function App() {
         <div className="w-full  flex flex-col">
           {window.location.pathname != "/login" && (
             <div className="h-[5rem] w-ful flex gap-4 items-center ml-auto mr-5">
-              <Button variant="text" className="p-2">
+              <Button appearance="default" className="p-2">
                 <SearchIcon />
               </Button>
-              <Button variant="text" className="p-2">
+              <Button appearance="default" className="p-2">
                 <NotificationIcon />
               </Button>
-              <Button variant="text" className="p-2">
+              <Button appearance="default" className="p-2">
                 <Avatar src="https://cdn.fakercloud.com/avatars/nelshd_128.jpg" />
               </Button>
             </div>
