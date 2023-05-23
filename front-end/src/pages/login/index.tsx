@@ -15,7 +15,7 @@ function Login() {
         }
     };
   return (
-    <div className='w-full h-full flex justify-center items-center'>
+    <div className='w-full h-full flex justify-center items-center '>
         <div className='w-11/12 min-w-[20rem] max-w-[80rem] rounded-xl bg-white shadow-xl flex  p-4 [&>*]:flex-1'>
             <div className='lg:h-[35rem] h-[20rem]  flex flex-col  items-center gap-[2rem]  pt-4'>
                 <span className='text-4xl flex justify-center items-center gap-3'>Welcomme <Welcome className='text-2xl'/></span>
