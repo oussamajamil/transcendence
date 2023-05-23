@@ -70,7 +70,7 @@ function App() {
         window.location.pathname === '/login' ? 'background' : ''
       }`}>
         {
-          window.location.pathname != '/login' && 
+          window.location.pathname != '/login'  && 
           (
         <div className="sidbar min-w-[6rem] w-[5%] bg-white  h-full  min-h-screen">
          <div className="logo h-[5rem]  p-2 flex ">
@@ -118,7 +118,7 @@ function App() {
           )
         }
           
-          <div className='flex-1 p-4'>
+          <div className='flex-1 p-4 debug'>
             <Routes>
               {RouteData.map((item, index) => (
                 <Route key={index} path={item.path} element={item.component} />
