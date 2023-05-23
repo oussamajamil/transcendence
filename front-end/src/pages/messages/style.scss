@@ -93,13 +93,232 @@
       background: #fbfcff;
       border: 1px solid #baccfd;
       border-radius: 30px;
-      .no-cnv {
-        font-size: 5rem;
-        font-family: "Righteous", cursive;
-        letter-spacing: 1.5px;
-        opacity: 0.2;
-        font-weight: 400;
-        color: #353e6c;
+        .no-cnv {
+          font-size: 4rem;
+          font-family: "Righteous", cursive;
+          letter-spacing: 1.5px;
+          opacity: 0.2;
+          font-weight: 400;
+          color: #353e6c;
+          display: none;
+        }
+      .chat-header {
+        box-sizing: border-box;
+        background: #FBFCFF;
+        border-bottom: 1px solid #BACCFD;
+        border-radius: 30px 30px 0px 0px;
+            .left-container{
+              .left{
+                  gap: 0.5rem;
+                    .user-name{
+                      font-family: 'Poppins';
+                      font-style: normal;
+                      font-weight: 600;
+                      font-size: 1.5rem;
+                      line-height: 15px;
+                      text-align: center;
+                      letter-spacing: 0.5px;
+                      text-transform: capitalize;
+                      color: #000000;
+                    }
+                    .cnx-status{
+                      font-family: 'Inter';
+                      font-style: normal;
+                      font-weight: 600;
+                      font-size: 0.75rem;
+                      line-height: 7px;
+                      text-align: center;
+                      letter-spacing: 0.5px;
+                      text-transform: capitalize;
+
+                      color: #00D609;
+                    }
+                }
+            }
+            .right-container{
+                .t-point{
+                  
+                  font-family: 'Inter';
+                  font-style: normal;
+                  font-weight: 600;
+                  font-size: 3rem;
+                  line-height: 7px;
+                  letter-spacing: 0.5px;
+                  text-transform: capitalize;
+                  color:#1657FF;
+                  transform: rotate(-90deg);
+                  z-index: 1;
+                }
+            }
+      }
+      .chat-body{
+        box-sizing: border-box;
+        background: #FBFCFF;
+          .chat-message{
+            .tree-one{
+                .tree-two{
+                    .tree-tr{
+                      .in-msg{
+              border-radius: 0px 16px 16px 16px;
+            }
+                    }
+                }
+            }
+          }
+      }
+      .chat-footer{
+        margin: 2rem;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        border: 1px solid #BACCFD;
+        border-radius: 10px;
+      }
+      
+
+    }
+  }
+}
+
+
+@media (max-width: 2190px) {
+  .game-container {
+    .chat-container {
+      .conversations {
+        .conversation-header {
+          height: 7rem;
+          .chat-btn {
+          }
+          .groups-btn {
+          }
+        }
+        .search-div {
+          .search-input {
+          }
+        }
+      }
+      .chat {
+        .no-cnv {
+          font-size: 3rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1700px) {
+  .game-container {
+    .chat-container {
+      .conversations {
+        .conversation-header {
+          height: 5rem;
+          .chat-btn {
+          }
+          .groups-btn {
+          }
+        }
+        .search-div {
+          .search-input {
+          }
+        }
+      }
+      .chat {
+        .no-cnv {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1400px) {
+  .game-container {
+    .chat-container {
+      flex-direction: column-reverse;
+      .conversations {
+        height: auto;
+        width: 100%;
+        .conversation-header {
+          flex-direction: column;
+          height: 6rem;
+          .chat-btn {
+            height: inherit;
+          }
+          .groups-btn {
+            height: inherit;
+            border-radius: 0;
+          }
+        }
+        .search-div {
+          height: 4rem;
+          .search-input {
+
+          }
+        }
+
+        .conv{
+          flex-direction: row;
+          width: 100%;
+        }
+
+      }
+      .chat {
+        width: 100%;
+        .no-cnv {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
+
+
+
+@media (max-width: 760px) {
+  .game-container {
+    .chat-container {
+      gap: 1rem;
+      .conversations {
+        .conversation-header {
+          .chat-btn {
+          }
+          .groups-btn {
+          }
+        }
+        .search-div {
+          .search-input {
+          }
+        }
+      }
+      .chat {
+        .no-cnv {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 285px) {
+  .game-container {
+    .chat-container {
+      height: 80%;
+      .conversations {
+        .conversation-header {
+          .chat-btn {
+          }
+          .groups-btn {
+          }
+        }
+        .search-div {
+          .search-input {
+          }
+        }
+      }
+      .chat {
+
+        .no-cnv {
+          font-size: 1rem;
+        }
       }
     }
   }

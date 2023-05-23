@@ -1,10 +1,8 @@
-import React from 'react'
+import React from "react";
+import "./style.scss";
 
 function HomePage() {
-  return (
-    <div>
-    </div>
-  )
+  return <div>home page</div>;
 }
 
-export default HomePage
+export default HomePage;
