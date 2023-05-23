@@ -263,8 +263,12 @@
       }
       .chat {
         width: 100%;
+        height: 90%;
         .no-cnv {
           font-size: 2rem;
+        }
+        .chat-header{
+          
         }
       }
     }
@@ -292,6 +296,52 @@
       .chat {
         .no-cnv {
           font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 430px) {
+  .game-container {
+    .chat-container {
+      gap: 1rem;
+      .conversations {
+        .conversation-header {
+          .chat-btn {
+          }
+          .groups-btn {
+          }
+        }
+        .search-div {
+          .search-input {
+          }
+        }
+      }
+      .chat {
+        .no-cnv {
+          font-size: 1rem;
+        }
+        .chat-header{
+          .left-container{
+            .left{
+              .user-name{
+                font-size: 1rem;
+              }
+              .cnx-status{
+                font-size: 0.75rem;
+              }
+            }
+          }
+          .right-container{
+            .t-point{
+              font-size: 2rem;
+            }
+          }.con{
+            .avat{
+              display: none;
+            }
+          }
         }
       }
     }
