@@ -1,4 +1,5 @@
 import React from "react";
+import { Switch } from "@material-tailwind/react";
 import { userType } from "../../utils/types";
 import { player1, player2 } from "../../utils/data";
 
@@ -36,7 +37,7 @@ function FriendsPage() {
             </button>
           </div>
         </div>
-        <div className="flex flex-col rounded-3xl py-[10px] max-h-[70%] bg-white gap-5">
+        <div className="flex flex-col rounded-3xl py-[10px] max-h-[70%] bg-white gap-5 overflow-hidden">
           <div>
             <h1 className="text-[2rem] text-[#353E6C] font-['Lilita One'] font-black pl-[20px]">
               Invitations
@@ -76,7 +77,98 @@ function FriendsPage() {
           </div>
         </div>
       </div>
-      <div></div>
+      <div className="flex flex-col items-center flex-1 gap-2 bg-white rounded-3xl p-[10px]">
+        <div>
+          <h1 className="text-[2rem] text-[#353E6C] font-['Lilita One'] font-black">
+            Friends List
+          </h1>
+        </div>
+        <div className="flex justify-around w-full text-[#1657FF] text-[0.9rem]">
+          <div className="w-[20%] flex justify-center">#</div>
+          <div className="w-[20%] flex justify-center">USERNAME</div>
+          <div className="w-[20%] flex justify-center">LVL</div>
+          <div className="w-[20%] flex justify-center">BLOCKED</div>
+          <div className="w-[20%] flex justify-center">DELETE</div>
+        </div>
+        <div className="w-full max-h-[90%] overflow-y-auto">
+          {player1?.relations.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className={`flex justify-around w-full text-[#000000] text-[0.9rem] h-[60px] items-center ${
+                  index % 2 === 0 ? "bg-[#DBE5FF]" : ""
+                }`}
+              >
+                <div className="w-[20%] flex justify-center">
+                  <div className="w-[50px] h-[50px] rounded-full border border-[#000]">
+                    <img
+                      className="w-[100%] h-[100%]"
+                      src={item?.relationWith?.avatar}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="w-[20%] flex justify-center">
+                  <span className="text-[1.1rem] font-bold">
+                    {item.relationWith.login}
+                  </span>
+                </div>
+                <div className="w-[20%] flex justify-center">
+                  <span className="text-[1.1rem] font-bold">
+                    {item.relationWith.level}
+                  </span>
+                </div>
+                <div className="w-[20%] flex justify-center">
+                  <Switch checked={item.type === "BLOCKED"} />
+                </div>
+                <div className="w-[20%] flex justify-center">
+                  <div className="w-[60px] h-[30px] text-[#fff] text-[0.6rem] cursor-pointer rounded-3xl bg-red-500 flex justify-center items-center">
+                    REMOVE
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+          {player1?.relationsWith.map((item, index) => {
+            return (
+              <div
+                key={index}
+                className={`flex justify-around w-full text-[#000000] text-[0.9rem] h-[60px] items-center ${
+                  index % 2 === 0 ? "bg-[#DBE5FF]" : ""
+                }`}
+              >
+                <div className="w-[20%] flex justify-center">
+                  <div className="w-[50px] h-[50px] rounded-full border border-[#000]">
+                    <img
+                      className="w-[100%] h-[100%]"
+                      src={item?.user?.avatar}
+                      alt=""
+                    />
+                  </div>
+                </div>
+                <div className="w-[20%] flex justify-center">
+                  <span className="text-[1.1rem] font-bold">
+                    {item.user.login}
+                  </span>
+                </div>
+                <div className="w-[20%] flex justify-center">
+                  <span className="text-[1.1rem] font-bold">
+                    {item.user.level}
+                  </span>
+                </div>
+                <div className="w-[20%] flex justify-center">
+                  <Switch checked={item.type === "BLOCKED"} />
+                </div>
+                <div className="w-[20%] flex justify-center">
+                  <div className="w-[60px] h-[30px] text-[#fff] text-[0.6rem] cursor-pointer rounded-3xl bg-red-500 flex justify-center items-center">
+                    REMOVE
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
     </div>
   );
 }
