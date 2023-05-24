@@ -69,12 +69,12 @@ function App() {
   return (
     <>
       <div
-        className={`flex min-h-[100vh] min-w-[100vw] overflow-auto  ${
+        className={`flex min-h-[100vh] min-w-[100vw] overflow-auto ${
           window.location.pathname === "/login" ? "background" : ""
         }`}
       >
         {window.location.pathname != "/login" && (
-          <div className="sidbar min-w-[4rem] w-[5%] bg-white  h-full  min-h-screen">
+          <div className="sidbar min-w-[4rem] w-[5%] bg-white  h-screen  min-h-screen ">
             <div className="logo h-[5rem]  p-2 flex ">
               <Logo className="w-[8rem]" />
             </div>
@@ -101,7 +101,7 @@ function App() {
             </div>
           </div>
         )}
-        <div className="w-full  flex flex-col">
+        <div className="w-full h-screen  overflow-auto flex flex-col">
           {window.location.pathname != "/login" && (
             <div className="h-[5rem] w-ful flex gap-4 items-center ml-auto mr-5">
               <Button appearance="default" className="p-2">
