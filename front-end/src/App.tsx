@@ -69,7 +69,7 @@ function App() {
   return (
     <>
       <div
-        className={`flex min-h-[100vh] min-w-[100vw] overflow-auto  ${
+        className={`flex min-h-[100vh] min-w-[100vw] overflow-auto   ${
           window.location.pathname === "/login" ? "background" : ""
         }`}
       >
@@ -101,7 +101,7 @@ function App() {
             </div>
           </div>
         )}
-        <div className="w-full  flex flex-col">
+        <div className="w-full  flex flex-col ">
           {window.location.pathname != "/login" && (
             <div className="h-[5rem] w-ful flex gap-4 items-center ml-auto mr-5">
               <Button variant="text" className="p-2">
