@@ -7,11 +7,21 @@ export type matchHistoryType = {
   createdAt: Date;
 };
 
+export type relationsType = {
+  id: string;
+  type: "FRIEND" | "BLOCKED" | "PENDING";
+  user: userType;
+  relationWith: userType;
+};
+
 export type userType = {
   id: string;
   login: string;
   avatar: string;
-  level?: number;
+  level: number;
+
+  relations: relationsType[];
+  relationsWith: relationsType[];
 
   winHistory: matchHistoryType[];
   loseHistory: matchHistoryType[];
