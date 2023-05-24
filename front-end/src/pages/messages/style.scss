@@ -152,7 +152,6 @@
             }
       }
       .chat-body{
-        box-sizing: border-box;
         background: #FBFCFF;
           .chat-message{
             .tree-one{
@@ -263,8 +262,17 @@
       }
       .chat {
         width: 100%;
+        height: 70%;
         .no-cnv {
           font-size: 2rem;
+        }
+        .chat-header{
+        }
+        .chat-body{
+          height: 50%;
+        }
+        .chat-footer{
+          height: 20%;
         }
       }
     }
@@ -298,6 +306,64 @@
   }
 }
 
+@media (max-width: 430px) {
+  .game-container {
+    .chat-container {
+      gap: 1rem;
+      .conversations {
+        .conversation-header {
+          .chat-btn {
+          }
+          .groups-btn {
+          }
+        }
+        .search-div {
+          .search-input {
+          }
+        }
+      }
+      .chat {
+        .no-cnv {
+          font-size: 1rem;
+        }
+        .chat-header{
+          .left-container{
+            .left{
+              .user-name{
+                font-size: 1rem;
+              }
+              .cnx-status{
+                font-size: 0.75rem;
+              }
+            }
+          }
+          .right-container{
+            .t-point{
+              font-size: 2rem;
+            }
+            .cir{
+              display: none;
+            }
+          }.con{
+            .avat{
+              display: none;
+            }
+            .left{
+              margin-left: 1.5rem;
+              .user-name{
+                font-size: 1rem;
+              }
+              .cnx-status{
+                font-size: 0.75rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
 @media (max-width: 285px) {
   .game-container {
     .chat-container {
@@ -318,6 +384,118 @@
 
         .no-cnv {
           font-size: 1rem;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+@media (max-height: 1020px) {
+  .game-container {
+    .h1{
+      height: 20%;
+    }
+    .chat-container {
+     
+      .conversations {
+        overflow: scroll;
+        .conversation-header {
+          flex-direction: row;
+          height: 2rem;
+          .chat-btn {
+          }
+          .groups-btn {
+          }
+        }
+        .search-div {
+          .search-input {
+          }
+        }
+        .conv{
+        }
+      }
+      .chat {
+        .no-cnv {
+        
+        }
+        .chat-header{
+          .left-container{
+            .left{
+              .user-name{
+               
+              }
+              .cnx-status{
+                
+              }
+            }
+          }
+          .right-container{
+            .t-point{
+             
+            }
+          }.con{
+            .avat{
+              
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-height: 780px) {
+  .game-container {
+    .h1{
+      height: 20%;
+    }
+    .chat-container {
+     
+      .conversations {
+        overflow: scroll;
+        .conversation-header {
+          .chat-btn {
+          }
+          .groups-btn {
+          }
+        }
+        .search-div {
+          .search-input {
+          }
+        }
+        .conv{
+        }
+      }
+      .chat {
+        .no-cnv {
+        
+        }
+        .chat-header{
+          .left-container{
+            .left{
+              .user-name{
+               
+              }
+              .cnx-status{
+                
+              }
+            }
+          }
+          .right-container{
+            .t-point{
+             
+            }
+          }.con{
+            .avat{
+              display: none;
+            }
+            .left{
+              margin-left: 1.5rem;
+            }
+          }
         }
       }
     }
