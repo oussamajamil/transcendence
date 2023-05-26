@@ -1,10 +1,10 @@
 import React from "react";
 import "./style.scss";
 import { ReactComponent as LoopeIcon } from "../../assets/loopicon.svg";
+import { ReactComponent as ConvImage } from "../../assets/hero5.svg";
 import { useState } from "react";
 import ConversationListPage from "./conversationList";
 import GroupsList from "./groupsList";
-import { Avatar} from 'rsuite';
 
 function MessagesPage() {
   const [Color1, setColor1] = React.useState("#000000");
@@ -108,64 +108,64 @@ function MessagesPage() {
 
   const [groups, setGroups] = useState([
     {
-      id: 1,
+      id: 111,
       name: "dfckzcldnscxzsfgksfgk;sdjkfgjksd",
       message:
         "Hellodfghdfghndfghkldfgjhdfklghjkdfghdfklghdfklgkldfgjhkldfgjhkldfgkhdfgh",
     },
     {
-      id: 2,
+      id: 211,
       name: "fscxjz",
       message: "Hello",
     },
     {
-      id: 3,
+      id: 311,
       name: "sfnxzc",
       message: "Hello",
     },
     {
-      id: 4,
+      id: 411,
       name: "fskxzckdsc",
       message: "Hello",
     },
     {
-      id: 5,
+      id: 511,
       name: "fskxzckdsc",
       message: "Hello",
     },
     {
-      id: 5,
+      id: 511,
       name: "fskxzckdsc",
       message: "Hello",
     },
     {
-      id: 6,
+      id: 611,
       name: "fskxzckdsc",
       message: "Hello",
     },
     {
-      id: 7,
+      id: 711,
       name: "fskxzckdsc",
       message: "Hello",
     },
     {
-      id: 8,
+      id: 811,
       name: "fskxzckdsc",
       message: "Hello",
     },
     {
-      id: 9,
+      id: 911,
       name: "fskxzckdsc",
       message: "Hello",
     },
     {
-      id: 10,
+      id: 1011,
       name: "fskxzckdsc",
       message: "Hello",
     },
 
     {
-      id: 11,
+      id: 1111,
       name: "fskxzckdsc",
       message: "Hello",
     },
@@ -193,7 +193,7 @@ function MessagesPage() {
 
   const [msg, setMsg] = useState([
     {
-      id: 1,
+      id: 122,
       name: "dfckzcldnscxzsfgksfgk;sdjkfgjksd",
       messages: [
         "Hellodfghdfghndfghkldfgjhdfklghjkdfghdfklghdfklgkldfgjhkldfgjhkldfgkhdfgh",
@@ -207,31 +207,31 @@ function MessagesPage() {
       dist: "in",
     },
     {
-      id: 2,
+      id: 222,
       name: "fscxjz",
       messages: ["Hello"],
       dist: "out",
     },
     {
-      id: 3,
+      id: 322,
       name: "sfnxzc",
       messages: ["Hello"],
       dist: "in",
     },
     {
-      id: 4,
+      id: 422,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "out",
     },
     {
-      id: 5,
+      id: 522,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "in",
     },
     {
-      id: 5,
+      id: 522,
       name: "fskxzckdsc",
       messages: [
         "Hellodfghdfghndfghkldfgjhdfklghjkdfghdfklghdfklgkldfgjhkldfgjhkldfgkhdfgh",
@@ -245,38 +245,38 @@ function MessagesPage() {
       dist: "out",
     },
     {
-      id: 6,
+      id: 622,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "in",
     },
     {
-      id: 7,
+      id: 722,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "out",
     },
     {
-      id: 8,
+      id: 822,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "in",
     },
     {
-      id: 9,
+      id: 922,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "out",
     },
     {
-      id: 10,
+      id: 1022,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "in",
     },
 
     {
-      id: 11,
+      id: 1122,
       name: "fskxzckdsc",
       messages: [
         "Hellodfghdfghndfghkldfgjhdfklghjkdfghdfklghdfklgkldfgjhkldfgjhkldfgkhdfgh",
@@ -290,19 +290,19 @@ function MessagesPage() {
       dist: "out",
     },
     {
-      id: 12,
+      id: 1222,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "in",
     },
     {
-      id: 13,
+      id: 1322,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "out",
     },
     {
-      id: 14,
+      id: 1422,
       name: "fskxzckdsc",
       messages: [
         "Hellodfghdfghndfghkldfgjhdfklghjkdfghdfklghdfklgkldfgjhkldfgjhkldfgkhdfgh",
@@ -316,7 +316,7 @@ function MessagesPage() {
       dist: "in",
     },
     {
-      id: 15,
+      id: 1522,
       name: "fskxzckdsc",
       messages: ["Hello"],
       dist: "out",
@@ -377,10 +377,7 @@ function MessagesPage() {
           <h1 className=" no-cnv ">choose a chat to start the conversation</h1>
           <div className=" chat-header w-[100%] h-[10%] flex justify-between ">
             <div className=" con h-[100%] flex items-center justify-center left-container gap-3 ">
-              <Avatar
-                src="https://as2.ftcdn.net/v2/jpg/01/24/30/67/1000_F_124306753_5lrF4qCOZLL2wFsyFfaJf6FprTTtcvnX.jpg"
-                className=" ms-[4rem] my-[1rem] chat-img rounded-[50%] w-[70px] h-[70px] avat "
-              />
+              <ConvImage className=" ms-[4rem] my-[1rem] chat-img rounded-[50%] w-[70px] h-[70px] avat " />
               <div className=" left h-[100%] flex items-center justify-center flex-col ">
                 <h2 className=" user-name ">user name</h2>
                 <p className=" cnx-status ">online/offline</p>
@@ -394,45 +391,37 @@ function MessagesPage() {
           <div className=" chat-body w-[70%] h-[70%] overflow-scroll gap-1   ">
             {msg.map((message) =>
               message.dist === "in" ? (
-                <div className="chat-message" key={message.id}>
+                <div className="chat-message" >
                   <div className="flex items-end">
                     <div className="flex flex-col space-y-2 text- max-w-xs mx-2 order-2 items-start">
-                      {message.messages.map((msge, index) => (
+                      {message.messages.map((msge) => (
                         <div className=" ">
                           <span
-                            className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-gradient-to-br from-blue-600 to-red-500 text-white"
-                            key={index}
+                            className="px-4 py-2 rounded-lg inline-block rounded-bl-none bg-white  text-[#515261]"
                           >
                             {msge}
                           </span>
                         </div>
                       ))}
                     </div>
-                    <Avatar
-                      src="https://as2.ftcdn.net/v2/jpg/01/24/30/67/1000_F_124306753_5lrF4qCOZLL2wFsyFfaJf6FprTTtcvnX.jpg"
-                      className=" w-12 h-12 rounded-full order-1  "
-                    />
+                    <ConvImage className=" w-12 h-12 rounded-full order-1  " />
                   </div>
                 </div>
               ) : (
-                <div className="chat-message" key={message.id}>
+                <div className="chat-message">
                   <div className="flex items-end justify-end">
                     <div className="flex flex-col space-y-2 text-lg max-w-xs mx-2 order-1 items-end">
-                      {message.messages.map((msg, index) => (
+                      {message.messages.map((msg) => (
                         <div>
                           <span
-                            className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-gradient-to-tr from-red-600 via-transparent to-blue-300"
-                            key={index}
+                            className="px-4 py-2 rounded-lg inline-block rounded-br-none bg-[#CEDDFE] "
                           >
                             {msg}
                           </span>
                         </div>
                       ))}
                     </div>
-                    <Avatar
-                      src="https://as2.ftcdn.net/v2/jpg/01/24/30/67/1000_F_124306753_5lrF4qCOZLL2wFsyFfaJf6FprTTtcvnX.jpg"
-                      className=" w-12 h-12 rounded-full order-2  "
-                    />
+                    <ConvImage className=" w-12 h-12 rounded-full order-2  " />
                   </div>
                 </div>
               )

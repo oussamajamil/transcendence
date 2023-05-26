@@ -1,5 +1,4 @@
 import React from "react";
-import { Switch } from "@material-tailwind/react";
 import { userType } from "../../utils/types";
 import { player1, player2 } from "../../utils/data";
 
@@ -119,7 +118,7 @@ function FriendsPage() {
                   </span>
                 </div>
                 <div className="w-[20%] flex justify-center">
-                  <Switch checked={item.type === "BLOCKED"} />
+                  {/* <Switch checked={item.type === "BLOCKED"} /> */}
                 </div>
                 <div className="w-[20%] flex justify-center">
                   <div className="w-[60px] h-[30px] text-[#fff] text-[0.6rem] cursor-pointer rounded-3xl bg-red-500 flex justify-center items-center">
@@ -157,7 +156,7 @@ function FriendsPage() {
                   </span>
                 </div>
                 <div className="w-[20%] flex justify-center">
-                  <Switch checked={item.type === "BLOCKED"} />
+                  {/* <Switch checked={item.type === "BLOCKED"} /> */}
                 </div>
                 <div className="w-[20%] flex justify-center">
                   <div className="w-[60px] h-[30px] text-[#fff] text-[0.6rem] cursor-pointer rounded-3xl bg-red-500 flex justify-center items-center">
