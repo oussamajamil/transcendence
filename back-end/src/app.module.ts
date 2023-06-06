@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+
 import { UserModule } from './user/user.module';
 import { PrismaService } from './prisma.service';
 import { UserController } from './user/user.controller';
@@ -30,7 +29,7 @@ import { MulterModule } from '@nestjs/platform-express';
     AchievementProgressModule,
     RankModule,
   ],
-  controllers: [AppController],
-  providers: [AppService, PrismaService],
+  controllers: [],
+  providers: [PrismaService],
 })
 export class AppModule {}
