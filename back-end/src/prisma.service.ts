@@ -20,12 +20,10 @@ export class PrismaService extends PrismaClient implements OnModuleInit {
       //   console.log('prisma middleware', params);
       const { action, args } = params;
       if (action == 'create' || action == 'update') {
-        // prervent sending  empty Object in create and update
         if (Object.keys(params.args.data).length === 0)
           throw new Error('No data provided');
         // hash password
         if (args.data && args.data.password)
-          // args.data.password = await bcrypt.hash(args.data.password, bcrypt.genSaltSync(10));
           args.data.password = await hashPassword(args.data.password);
       }
 

@@ -4,6 +4,9 @@ export interface findAll {
   where: {
     [key: string]: any;
   };
+  include?: {
+    [key: string]: any;
+  };
   select?: {
     [key: string]: any;
   };

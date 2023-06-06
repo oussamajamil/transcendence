@@ -31,16 +31,17 @@ export class UserService {
     };
   }
 
+  @findAllDecorator()
   findOne(id: string, query: findAll) {
-    delete query.orderBy;
-    delete query.where;
     return this.prisma.user.findUnique({
       where: {
         id,
       },
+      include: query.include || undefined,
     });
   }
 
+  @findAllDecorator()
   update(id: string, updateUserDto: UpdateUserDto) {
     return this.prisma.user.update({
       where: {
@@ -52,6 +53,7 @@ export class UserService {
     });
   }
 
+  @findAllDecorator()
   remove(id: string) {
     return this.prisma.user.delete({
       where: {
