@@ -56,7 +56,6 @@ export class UserController {
     }),
   )
   create(@UploadedFile() file, @Body() createUserDto: CreateUserDto) {
-    console.log(file);
     return this.userService.create(createUserDto);
   }
 

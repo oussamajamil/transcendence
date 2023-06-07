@@ -17,7 +17,7 @@ export const storage = diskStorage({
     callback(null, true);
   },
   filename: async (req, file, callback) => {
-    req.body.file = generateFilename(file);
+    req.body.avatar = generateFilename(file);
     callback(null, generateFilename(file));
   },
 });
