@@ -81,8 +81,8 @@ model User {
   membership      Membership[]        @relation("channel_member")
   messages        Message[]           @relation("user_messages")
   achievements    AchievementProgress[]
-  rank            rank                @relation(fields: [rankId], references: [id])
-  rankId          String              @map("rank_id")
+  rank            rank?                @relation(fields: [rankId], references: [id])
+  rankId          String?              @map("rank_id")
 
   createdAt DateTime      @default(now()) @map("created_at")
   updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")

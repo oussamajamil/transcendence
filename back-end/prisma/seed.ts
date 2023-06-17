@@ -23,16 +23,22 @@ const Ranks = [
 
 const users = [
   {
-    login: 'ojamil',
-    rankId: '8339cba2-d530-4d2e-9930-ec2625d7f403',
+    login: 'yossef',
   },
   {
-    login: 'hdrabi',
-    rankId: '6036ca49-033a-41cb-9a07-904b82d88ad6',
+    login: 'hamid',
   },
   {
-    login: 'momayaz',
-    rankId: '6e4f34c3-6ba4-4e7a-9629-530eb79bf2d8',
+    login: 'l3bal',
+  },
+  {
+    login: 'izouf',
+  },
+  {
+    login: 'sawab',
+  },
+  {
+    login: 'aynam',
   },
 ];
 
@@ -49,17 +55,50 @@ const createRanks = async () => {
 const createUsers = async () => {
   users.forEach(async (user) => {
     await prisma.user.create({
-      data: user,
+      data: {
+        ...user,
+        rank: {
+          connect: {
+            name: 'Bronze',
+          },
+        },
+      },
     });
   });
+};
+
+const friends = async () => {
+  const users = await prisma.user.findMany();
+  console.log('data', users);
+
+  // users.forEach(async (user, index) => {
+  //   console.log('user', user);
+  // });
+  for (let i = 0; i < users.length - 1; i++) {
+    await prisma.relation.create({
+      data: {
+        user: {
+          connect: {
+            id: users[i].id,
+          },
+        },
+        relationWith: {
+          connect: {
+            id: users[i + 1].id,
+          },
+        },
+        type: 'FRIEND',
+      },
+    });
+  }
 };
 
 const ranksdata = async () => await prisma.rank.findMany();
 const usersdata = async () => await prisma.user.findMany();
 async function main() {
-  await createRanks();
-  // console.log('Start seeding...');
-  // usersdata()
+  console.log('Start seeding...');
+  // await createRanks();
+  // createUsers()
   //   .then((ranks) => {
   //     console.log(ranks);
   //   })
@@ -69,6 +108,7 @@ async function main() {
   //   .finally(async () => {
   //     await prisma.$disconnect();
   //   });
+  friends();
 }
 
 main();

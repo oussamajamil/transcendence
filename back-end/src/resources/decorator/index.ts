@@ -43,7 +43,13 @@ export const findAllDecorator = () => {
           args[0].select = JSON.parse(args[0].select);
         }
         if (args[0].orderBy) {
-          args[0].orderBy = JSON.parse(args[0].orderBy);
+          args[0].orderBy = {
+            ...JSON.parse(args[0].orderBy),
+            createdAt: 'desc',
+          };
+        }
+        if (args[0].include) {
+          args[0].include = JSON.parse(args[0].include);
         }
         const result = await oldFunction.apply(this, args);
         return result;

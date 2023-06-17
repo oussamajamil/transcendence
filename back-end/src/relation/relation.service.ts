@@ -22,7 +22,7 @@ export class RelationService {
     const totalResults = this.prisma.relation.count();
     const results = this.prisma.relation.findMany(query);
     return {
-      totalResults,
+      totalResults: +totalResults || 0,
       results,
     };
   }
