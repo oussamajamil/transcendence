@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { ConflictException, Injectable } from '@nestjs/common';
 import { CreateRelationDto } from './dto/create-relation.dto';
 import { UpdateRelationDto } from './dto/update-relation.dto';
 import { PrismaService } from 'src/prisma.service';
@@ -9,8 +9,30 @@ import { findAllDecorator } from 'src/resources/decorator';
 export class RelationService {
   constructor(private prisma: PrismaService) {}
   @findAllDecorator()
-  create(createRelationDto: CreateRelationDto) {
-    return this.prisma.relation.create({
+  async create(createRelationDto: CreateRelationDto) {
+    const relation = await this.prisma.relation.findMany({
+      where: {
+        OR: [
+          {
+            AND: [
+              { userId: createRelationDto.userId },
+              { relationWithId: createRelationDto.relationWithId },
+            ],
+          },
+          {
+            AND: [
+              { userId: createRelationDto.relationWithId },
+              { relationWithId: createRelationDto.userId },
+            ],
+          },
+        ],
+      },
+    });
+    console.log({ relation });
+    if (relation.length > 0) {
+      throw new ConflictException('Relation already exists');
+    }
+    return await this.prisma.relation.create({
       data: {
         ...createRelationDto,
       },

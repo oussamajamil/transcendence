@@ -6,7 +6,7 @@ import {
   Routes,
   useNavigate,
 } from "react-router-dom";
-import { Button, Avatar } from 'rsuite';
+import { Button, Avatar } from "rsuite";
 import { motion } from "framer-motion";
 import { ReactComponent as Logo } from "./assets/logo.svg";
 import { ReactComponent as DashbordIcon } from "./assets/dashbord.svg";
@@ -69,7 +69,7 @@ function App() {
   return (
     <>
       <div
-        className={`flex min-h-[100vh] min-w-[100vw] overflow-auto ${
+        className={`flex min-h-[100vh] min-w-[100vw] overflow-auto bg-[#F4F5F7]${
           window.location.pathname === "/login" ? "background" : ""
         }`}
       >

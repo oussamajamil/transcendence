@@ -1,3 +1,10 @@
+export type Params = {
+  page?: number;
+  limit?: number;
+  where?: any;
+  include?: any;
+};
+
 export type matchHistoryType = {
   id: string;
   winner: userType;
@@ -8,10 +15,12 @@ export type matchHistoryType = {
 };
 
 export type relationsType = {
-  id: string;
-  type: "FRIEND" | "BLOCKED" | "PENDING";
-  user: userType;
-  relationWith: userType;
+  id?: string;
+  type?: "FRIEND" | "BLOCKED" | "PENDING";
+  user?: userType;
+  userId: string;
+  relationWith?: userType;
+  relationWithId: string;
 };
 
 export type userType = {

@@ -10,7 +10,7 @@ datasource db {
 model Relation {
   id              String        @id @default(uuid())
 
-  type            RelationType
+  type            RelationType @default(PENDING)
   user            User          @relation("relations", fields: [userId], references: [id])
   userId          String        @map("user_id")
   relationWith    User          @relation("relation_with", fields: [relationWithId], references: [id])
@@ -19,6 +19,7 @@ model Relation {
   createdAt DateTime      @default(now()) @map("created_at")
   updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")
 
+  @@unique([userId, relationWithId])
   @@map("relations")
 }
 

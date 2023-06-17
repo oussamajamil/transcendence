@@ -50,6 +50,7 @@ export const findAllDecorator = () => {
         }
         if (args[0].include) {
           args[0].include = JSON.parse(args[0].include);
+          if (JSON.stringify(args[0].include) === '{}') delete args[0].include;
         }
         const result = await oldFunction.apply(this, args);
         return result;

@@ -14,8 +14,8 @@ import { UpdateRelationDto } from './dto/update-relation.dto';
 import { ApiTags } from '@nestjs/swagger';
 import { findAll } from 'src/resources/interfaces/findAlll';
 
-@ApiTags('relation')
-@Controller('relation')
+@ApiTags('relations')
+@Controller('relations')
 export class RelationController {
   constructor(private readonly relationService: RelationService) {}
 

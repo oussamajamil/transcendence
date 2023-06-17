@@ -9,10 +9,9 @@ import GroupsList from "./groupsList";
 import { BsEnvelopePaper, BsJustify } from "react-icons/bs";
 import { io } from "socket.io-client";
 import axios from "axios";
-import { getConversation } from "../../api/user";
+// import { getConversation } from "../../api/user";
 import { Avatar } from "rsuite";
 import img from "../../assets/hero5.png";
-
 
 function MessagesPage() {
   const [Color1, setColor1] = React.useState("#fff");
@@ -21,11 +20,11 @@ function MessagesPage() {
   const [bgColor2, setbgColor2] = React.useState("#333248");
   const [tab, setTab] = useState(false);
 
-  React.useEffect(() => {
-    getConversation("hdrabi").then((res) => {
-      console.log(res);
-    });
-  }, []);
+  // React.useEffect(() => {
+  //   getConversation("hdrabi").then((res) => {
+  //     console.log(res);
+  //   });
+  // }, []);
 
   const handleButtonClick = () => {
     setColor1(Color2);
@@ -437,7 +436,12 @@ function MessagesPage() {
             </h1>
             <div className=" chat-header w-[100%] h-[10%] flex justify-between  ">
               <div className=" con h-[100%] flex items-center justify-center left-container gap-3 ">
-                 <Avatar src={img} size="lg" circle className=" ms-[4rem] my-[1rem] !bg-transparent "  />
+                <Avatar
+                  src={img}
+                  size="lg"
+                  circle
+                  className=" ms-[4rem] my-[1rem] !bg-transparent "
+                />
                 <div className=" left h-[100%] flex items-center justify-center flex-col ">
                   <h2 className=" user-name ">user name</h2>
                   <p className=" cnx-status ">online/offline</p>
@@ -462,7 +466,12 @@ function MessagesPage() {
                           </div>
                         ))}
                       </div>
-                      <Avatar src={img} size="lg" circle className="!bg-transparent" />
+                      <Avatar
+                        src={img}
+                        size="lg"
+                        circle
+                        className="!bg-transparent"
+                      />
                     </div>
                   </div>
                 ) : (
@@ -471,13 +480,18 @@ function MessagesPage() {
                       <div className="flex flex-col space-y-2 text-lg max-w-xs mx-2 order-1 items-end tree-two">
                         {message.messages.map((msg, index) => (
                           <div key={"message" + index} className="">
-                            <span className="px-4 py-2 rounded-lg inline-block rounded-br-none text-white msg1 ">
+                            <span className="px-4 py-2 rounded-lg inline-block rounded-br-none text-white msg1 max-w-[200px] break-words">
                               {msg}
                             </span>
                           </div>
                         ))}
                       </div>
-                      <Avatar src={img} size="lg" circle className=" !bg-transparent order-2  "  />
+                      <Avatar
+                        src={img}
+                        size="lg"
+                        circle
+                        className=" !bg-transparent order-2  "
+                      />
                     </div>
                   </div>
                 )
