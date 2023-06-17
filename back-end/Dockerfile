@@ -7,8 +7,6 @@ COPY package*.json ./
 RUN yarn 
 RUN npm i -g prisma
 COPY ./ ./
-RUN yarn build 
 EXPOSE 3000
 
 CMD yarn deploy:migrate yarn start:dev
-
