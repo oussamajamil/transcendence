@@ -4,7 +4,6 @@ import { ReactComponent as LoopeIcon } from "../../assets/loopicon.svg";
 import { useState } from "react";
 import ConversationListPage from "./conversationList";
 import GroupsList from "./groupsList";
-import { Avatar, Button } from "@material-tailwind/react";
 
 function MessagesPage() {
   const [Color1, setColor1] = React.useState("#000000");
