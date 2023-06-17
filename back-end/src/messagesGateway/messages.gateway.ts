@@ -4,11 +4,12 @@ import {
   OnGatewayInit,
   WebSocketServer,
 } from '@nestjs/websockets';
+import { ChannelType } from '@prisma/client';
 import { Server } from 'socket.io';
 import { Client } from 'socket.io/dist/client';
 import { PrismaService } from 'src/prisma.service';
 
-@WebSocketGateway()
+@WebSocketGateway({ cors: true })
 export class MessagesGateway implements OnGatewayInit {
   constructor(private prisma: PrismaService) {}
   @WebSocketServer()
@@ -19,8 +20,22 @@ export class MessagesGateway implements OnGatewayInit {
   }
 
   @SubscribeMessage('join')
-  handleJoin(client: any, payload: { userId: string; channelId: string }) {
+  async handleJoin(
+    client: any,
+    payload: {
+      userId: string;
+      channelId: string;
+      type: ChannelType;
+      name: string;
+    },
+  ) {
     client.join(payload.channelId);
+    await this.prisma.channel.create({
+      data: {
+        type: payload.type || 'DM',
+        name: payload.name,
+      },
+    });
     console.log('Joined channel', payload.channelId);
   }
 
@@ -48,6 +63,14 @@ export class MessagesGateway implements OnGatewayInit {
   handleLeave(client: any, payload: { userId: string; channelId: string }) {
     {
       client.leave(payload.channelId);
+    }
+  }
+  @SubscribeMessage('test')
+  testmsg(client: any, payload: any) {
+    console.log('test', payload);
+    let i = 0;
+    while (i++ < 100) {
+      client.emit('test', payload);
     }
   }
 }

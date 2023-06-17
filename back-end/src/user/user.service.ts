@@ -24,7 +24,9 @@ export class UserService {
   @findAllDecorator()
   async findAll(query: findAll) {
     const count = await this.prisma.user.count();
+    console.log(count);
     const res = await this.prisma.user.findMany(query);
+    console.log('res', res);
     return {
       totalResults: count,
       results: res,

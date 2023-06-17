@@ -19,11 +19,16 @@ export class ChannelService {
   }
 
   @findAllDecorator()
-  findAll(@Query() query: findAll) {
-    const totalResults = this.prisma.channel.count();
-    const results = this.prisma.channel.findMany(query);
+  async findAll(@Query() query: findAll) {
+    console.log('i am here1', query);
+    const totalResults = await this.prisma.channel.count({
+      where: query.where || undefined,
+    });
+    const results = await this.prisma.channel.findMany(query);
+    console.log('i am here2', results);
+
     return {
-      totalResults,
+      totalResults: +totalResults || 0,
       results,
     };
   }
@@ -53,7 +58,6 @@ export class ChannelService {
     });
   }
 
-
   @findAllDecorator()
   remove(id: string) {
     return this.prisma.channel.delete({
@@ -62,4 +66,22 @@ export class ChannelService {
       },
     });
   }
+
+  // async testApi() {
+  //   const res = await this.prisma.channel.findMany({
+  //     where: {
+  //       type: 'DM',
+  //       members: {
+  //         some: {
+  //           user: {
+  //             login: 'test',
+  //           },
+  //         },
+  //       },
+  //     },
+  //     include: {
+  //       messages: true,
+  //     },
+  //   });
+  // }
 }
