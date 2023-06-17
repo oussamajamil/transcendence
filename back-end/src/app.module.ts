@@ -13,6 +13,8 @@ import { AchievementProgressModule } from './achievement-progress/achievement-pr
 import { RankModule } from './rank/rank.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { MessagesGateway } from './messagesGateway/messages.gateway';
+import { StrategyModule } from './strategy/strategy.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -29,6 +31,7 @@ import { MessagesGateway } from './messagesGateway/messages.gateway';
     AchievementModule,
     AchievementProgressModule,
     RankModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [PrismaService, MessagesGateway],
