@@ -38,13 +38,13 @@ const users = [
 
 const prisma = new PrismaClient();
 
-// const createRanks = async () => {
-//   Ranks.forEach(async (rank) => {
-//     await prisma.rank.create({
-//       data: rank,
-//     });
-//   });
-// };
+const createRanks = async () => {
+  Ranks.forEach(async (rank) => {
+    await prisma.rank.create({
+      data: rank,
+    });
+  });
+};
 
 const createUsers = async () => {
   users.forEach(async (user) => {
@@ -57,17 +57,18 @@ const createUsers = async () => {
 const ranksdata = async () => await prisma.rank.findMany();
 const usersdata = async () => await prisma.user.findMany();
 async function main() {
-  console.log('Start seeding...');
-  usersdata()
-    .then((ranks) => {
-      console.log(ranks);
-    })
-    .catch((e) => {
-      console.log(e);
-    })
-    .finally(async () => {
-      await prisma.$disconnect();
-    });
+  await createRanks();
+  // console.log('Start seeding...');
+  // usersdata()
+  //   .then((ranks) => {
+  //     console.log(ranks);
+  //   })
+  //   .catch((e) => {
+  //     console.log(e);
+  //   })
+  //   .finally(async () => {
+  //     await prisma.$disconnect();
+  //   });
 }
 
 main();
