@@ -25,8 +25,8 @@ function ConversationListPage(props: Props) {
       className=" chat-container-cmp flex items-center  gap-[3rem] cursor-pointer h-[100px] min-w-[400px] hover:bg-[#BACCFD]  "
     >
       <div className="flex  items-center  h-[100%] ">
-        <ConvImage className=" ms-[4rem] my-[1rem] chat-img rounded-[50%] w-[70px] h-[70px]  " />
-        <Online className=" online-icon -translate-y-8 -translate-x-5 " />
+        <ConvImage className=" ms-[4rem] my-[1rem] chat-img rounded-[50%] w-[50px] h-[50px]  " />
+        <Online className=" online-icon -translate-y-5 -translate-x-5 " />
       </div>
       <div className="text flex justify-evenly flex-col gap-[1rem] " >
         <h1 className=" name ">{name}</h1>

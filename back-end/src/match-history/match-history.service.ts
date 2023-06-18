@@ -22,7 +22,7 @@ export class MatchHistoryService {
     const totalResults = this.prisma.matchHistory.count();
     const results = this.prisma.matchHistory.findMany(query);
     return {
-      totalResults,
+      totalResults: +totalResults || 0,
       results,
     };
   }

@@ -13,11 +13,18 @@ import { AchievementProgressModule } from './achievement-progress/achievement-pr
 import { RankModule } from './rank/rank.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { MessagesGateway } from './messagesGateway/messages.gateway';
+<<<<<<< HEAD
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
 
+=======
+import { StrategyModule } from './strategy/strategy.module';
+import { AuthModule } from './auth/auth.module';
+import { ConfigModule } from '@nestjs/config';
+>>>>>>> FETCH_HEAD
 @Module({
   imports: [
+    ConfigModule.forRoot(),
     MulterModule.register({
       dest: './uploads', // Specify the destination directory for uploaded files
     }),
@@ -34,6 +41,7 @@ import { join } from 'path';
     AchievementModule,
     AchievementProgressModule,
     RankModule,
+    AuthModule,
   ],
   controllers: [],
   providers: [PrismaService, MessagesGateway],

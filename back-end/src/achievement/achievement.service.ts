@@ -22,7 +22,7 @@ export class AchievementService {
     const totalResults = this.prisma.achievement.count();
     const results = this.prisma.achievement.findMany(query);
     return {
-      totalResults,
+      totalResults: +totalResults || 0,
       results,
     };
   }

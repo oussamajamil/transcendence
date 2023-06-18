@@ -4,7 +4,7 @@ import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { AbstractWsAdapter } from '@nestjs/websockets';
 import { IoAdapter } from '@nestjs/platform-socket.io';
 import { MessagesGateway } from './messagesGateway/messages.gateway';
-
+import * as cors from 'cors';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   const config = new DocumentBuilder()
@@ -13,6 +13,8 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
 
+  app.use(cors());
+  //cors
   app.useWebSocketAdapter(new IoAdapter(app));
   const gatewayMessage = app.get(MessagesGateway);
   gatewayMessage.server = app.getHttpServer();
