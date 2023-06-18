@@ -13,11 +13,16 @@ import { AchievementProgressModule } from './achievement-progress/achievement-pr
 import { RankModule } from './rank/rank.module';
 import { MulterModule } from '@nestjs/platform-express';
 import { MessagesGateway } from './messagesGateway/messages.gateway';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 
 @Module({
   imports: [
     MulterModule.register({
       dest: './uploads', // Specify the destination directory for uploaded files
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', '..', 'uploads'),
     }),
     UserModule,
     RelationModule,
