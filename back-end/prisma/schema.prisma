@@ -16,7 +16,8 @@ model Relation {
   relationWith    User          @relation("relation_with", fields: [relationWithId], references: [id])
   relationWithId  String        @map("relation_with_id")
 
-  createdAt       DateTime      @default(now()) @map("created_at")
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")
 
   @@map("relations")
 }
@@ -25,14 +26,12 @@ model MatchHistory {
   id          String      @id @default(uuid())
   winnerScore Int         @map("winner_score")
   loserScore  Int         @map("loser_score")
-
   winner      User        @relation("winner", fields: [winnerId], references: [id])
   winnerId    String      @map("winner_id")
   loser       User        @relation("loser", fields: [loserId], references: [id])
   loserId     String      @map("loser_id")
-
-  createdAt   DateTime    @default(now()) @map("created_at")
-
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")
   @@map("match_history")
 }
 
@@ -60,7 +59,8 @@ model Membership {
   channelId   String          @map("channel_id")
   type        MembershipType
   status      MembershipStatus
-
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")
   @@id([userId, channelId])
   @@map("memberships")
 }
@@ -69,7 +69,7 @@ model User {
   id              String              @id @default(uuid())
   login           String              @unique
   avatar          String?
-  level           Int                 @default(1)
+  level           Int                 @default(0)
   exp             Int                 @default(0)
   points          Int                 @default(0)
   
@@ -81,10 +81,11 @@ model User {
   membership      Membership[]        @relation("channel_member")
   messages        Message[]           @relation("user_messages")
   achievements    AchievementProgress[]
-  rank            rank                @relation(fields: [rankId], references: [id])
-  rankId          String              @map("rank_id")
+  rank            rank?                @relation(fields: [rankId], references: [id])
+  rankId          String?              @map("rank_id")
 
-  createdAt       DateTime            @default(now()) @map("created_at")
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")
 
   @@map("users")
 }
@@ -108,10 +109,12 @@ model Achievement {
   id          String            @id @default(uuid())
   name        String            @db.VarChar(100)
   mission     String            @db.VarChar(250)
+  image       String            @db.VarChar(250)
 
   users       AchievementProgress[]           
 
-  createdAt   DateTime          @default(now()) @map("created_at")
+    createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")
 
   @@map("achievements")
 }
@@ -124,8 +127,9 @@ model AchievementProgress {
   userId          String              @map("user_id")
   achievement     Achievement         @relation(fields: [achievementId], references: [id])
   achievementId   String              @map("achievement_id")
-
-  createdAt       DateTime                @default(now()) @map("created_at")
+  progress        Int                 @default(0)
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")
 
   @@map("achievement_progress")
 }
@@ -136,7 +140,8 @@ model rank{
   requiredPoints Int @map("required_points")
   emblem String? 
   border String?
-
+  createdAt DateTime      @default(now()) @map("created_at")
+  updatedAt DateTime      @default(now()) @updatedAt @map("updated_at")
   users User[]
 
   @@map("ranks")

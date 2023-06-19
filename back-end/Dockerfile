@@ -1,14 +1,11 @@
 FROM node:latest
-
 WORKDIR /usr/src/app
-
 RUN npm i -g --force yarn 
 COPY package*.json ./
 RUN yarn 
-RUN npm i -g prisma
+# RUN npm i -g prisma
 COPY ./ ./
-RUN yarn build 
+RUN yarn generate:postgres 
+# RUN yarn build 
 EXPOSE 3000
-
-CMD yarn deploy:migrate yarn start:dev
-
+CMD  yarn dev
