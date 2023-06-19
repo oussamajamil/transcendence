@@ -16,11 +16,16 @@ import { MessagesGateway } from './messagesGateway/messages.gateway';
 import { StrategyModule } from './strategy/strategy.module';
 import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
+import { ServeStaticModule } from '@nestjs/serve-static';
+import { join } from 'path';
 @Module({
   imports: [
     ConfigModule.forRoot(),
     MulterModule.register({
       dest: './uploads', // Specify the destination directory for uploaded files
+    }),
+    ServeStaticModule.forRoot({
+      rootPath: join(__dirname, '..', '..', 'uploads'),
     }),
     UserModule,
     RelationModule,

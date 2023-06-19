@@ -1,20 +1,20 @@
 import React from "react";
 import { userType } from "../../utils/types";
 import { player1, player2 } from "../../utils/data";
+import { Toggle } from "rsuite";
+import { useQuery } from "@tanstack/react-query";
+import { getUsers } from "../../api/user/index";
 
 function FriendsPage() {
-  const data: userType[] = [
-    player1,
-    player2,
-    player1,
-    player2,
-    player1,
-    player2,
-    player1,
-    player2,
-    player1,
-    player2,
-  ];
+  const currentUser = useQuery({
+    queryKey: ["currentUser"],
+    queryFn: () =>
+      getUsers({
+        where: { username: "kcriple0" },
+      }),
+  });
+
+  console.log({ currentUser });
 
   return (
     <div className="w-[90%] h-[90%] mx-auto flex gap-10">
@@ -43,7 +43,7 @@ function FriendsPage() {
             </h1>
           </div>
           <div className="flex flex-col gap-3 overflow-y-auto h-full w-full pl-[20px]">
-            {data.map((item, index) => {
+            {/* {data.map((item, index) => {
               return (
                 <div
                   key={index}
@@ -72,7 +72,7 @@ function FriendsPage() {
                   </div>
                 </div>
               );
-            })}
+            })} */}
           </div>
         </div>
       </div>
@@ -118,7 +118,7 @@ function FriendsPage() {
                   </span>
                 </div>
                 <div className="w-[20%] flex justify-center">
-                  {/* <Switch checked={item.type === "BLOCKED"} /> */}
+                  <Toggle size="md" />
                 </div>
                 <div className="w-[20%] flex justify-center">
                   <div className="w-[60px] h-[30px] text-[#fff] text-[0.6rem] cursor-pointer rounded-3xl bg-red-500 flex justify-center items-center">
@@ -156,7 +156,7 @@ function FriendsPage() {
                   </span>
                 </div>
                 <div className="w-[20%] flex justify-center">
-                  {/* <Switch checked={item.type === "BLOCKED"} /> */}
+                  <Toggle size="md" />
                 </div>
                 <div className="w-[20%] flex justify-center">
                   <div className="w-[60px] h-[30px] text-[#fff] text-[0.6rem] cursor-pointer rounded-3xl bg-red-500 flex justify-center items-center">

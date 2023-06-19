@@ -1,14 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lilita+One&family=Purple+Purse&family=Righteous&display=swap");
 
 .game-container {
-  // margin-inline: auto;
-  // position: relative;
-
-  .h1 {
+  .titel {
     font-family: "Lilita One";
     letter-spacing: 1.5px;
     font-weight: 400;
     color: #353e6c;
+    animation: slide 1.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards ;
+    transform: translateX(-100%);
   }
   .chat-container {
     .conversations {
@@ -46,10 +45,10 @@
       .search-div {
         border: 1px solid #95adef;
         box-sizing: border-box;
-        background-color: #95ADEF;
+        background-color: #95adef;
         .search-icon {
           width: 10%;
-          background-color: #95ADEF;
+          background-color: #95adef;
         }
         .search-input {
           width: 90%;
@@ -61,7 +60,7 @@
           line-height: 18px;
           letter-spacing: 0.5px;
           text-transform: capitalize;
-          color: #2F2E41;
+          color: #2f2e41;
         }
         ::placeholder {
           font-family: "Poppins", sans-serif;
@@ -71,104 +70,201 @@
           line-height: 18px;
           letter-spacing: 0.5px;
           text-transform: capitalize;
-          color: #2F2E41;
+          color: #2f2e41;
         }
       }
     }
+    ::-webkit-scrollbar {
+      width: 10px;
+      background-color: transparent !important;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+    -webkit-scrollbar-track {
+      background: #f1f1f1;
+    }
+    ::-webkit-scrollbar-track:hover {
+      background: #e0e0e0;
+    }
     .chat {
-
       border: 1px solid #baccfd;
-      background-image: url("../../assets/cnvbg.svg"); 
-        .no-cnv {
-          font-size: 4rem;
-          font-family: "Righteous", cursive;
-          letter-spacing: 1.5px;
-          opacity: 0.2;
-          font-weight: 400;
-          color: #353e6c;
-          display: none;
-        }
+      background-image: url("../../assets/cnvbg.svg");
+      .no-cnv {
+        font-size: 4rem;
+        font-family: "Righteous", cursive;
+        letter-spacing: 1.5px;
+        opacity: 0.2;
+        font-weight: 400;
+        color: #353e6c;
+        display: none;
+      }
       .chat-header {
         box-sizing: border-box;
-        border: 1px solid #2F2E41;
-        border-radius: 35px 35px 50px 50px ;
-            .left-container{
-              .left{
-                  gap: 0.5rem;
-                    .user-name{
-                      font-family: 'Poppins';
-                      font-style: normal;
-                      font-weight: 600;
-                      font-size: 1.5rem;
-                      line-height: 15px;
-                      text-align: center;
-                      letter-spacing: 0.5px;
-                      text-transform: capitalize;
-                      color: #fff;
-                    }
-                    .cnx-status{
-                      font-family: 'Inter';
-                      font-style: normal;
-                      font-weight: 600;
-                      font-size: 0.75rem;
-                      line-height: 7px;
-                      text-align: center;
-                      letter-spacing: 0.5px;
-                      text-transform: capitalize;
-
-                      color: #00D609;
-                    }
-                }
+        border: 1px solid #2f2e41;
+        border-radius: 35px 35px 50px 50px;
+        .left-container {
+          .left {
+            gap: 0.5rem;
+            .user-name {
+              font-family: "Poppins";
+              font-style: normal;
+              font-weight: 600;
+              font-size: 1.5rem;
+              line-height: 15px;
+              text-align: center;
+              letter-spacing: 0.5px;
+              text-transform: capitalize;
+              color: #fff;
             }
-            .right-container{
-                .t-point{
-                  
-                  font-family: 'Inter';
-                  font-style: normal;
-                  font-weight: 600;
-                  font-size: 3rem;
-                  line-height: 7px;
-                  letter-spacing: 0.5px;
-                  text-transform: capitalize;
-                  color:#fff;
-                  transform: rotate(-90deg);
-                  z-index: 1;
-                }
-            }
-      }
-      .chat-body{
-      background-image: url("../../assets/cnvbg.svg"); 
+            .cnx-status {
+              font-family: "Inter";
+              font-style: normal;
+              font-weight: 600;
+              font-size: 0.75rem;
+              line-height: 7px;
+              text-align: center;
+              letter-spacing: 0.5px;
+              text-transform: capitalize;
 
-          .chat-message{
-            .tree-one{
-                .tree-two{
-                    .msg{
-                      background: linear-gradient(185deg, #406CE6 , #29FF7F 190% 150%);
-                    }
-                    .msg1{
-                      background: linear-gradient(170deg, #E93347 , #A0A2F5 120% 150%);
-                    }
-                }
+              color: #00d609;
             }
           }
-          ::-webkit-scrollbar {
-          width: 10px;
-          background-color: transparent !important;
         }
+        .right-container {
+          .t-point {
+            font-family: "Inter";
+            font-style: normal;
+            font-weight: 600;
+            font-size: 3rem;
+            line-height: 7px;
+            letter-spacing: 0.5px;
+            text-transform: capitalize;
+            color: #fff;
+            transform: rotate(-90deg);
+            z-index: 1;
+          }
+        }
+      }
+      .chat-body {
+        background-image: url("../../assets/cnvbg.svg");
+
+        .chat-message {
+          .tree-one {
+            .tree-two {
+              .msg {
+                background: linear-gradient(185deg, #406ce6, #29ff7f 190% 150%);
+              }
+              .msg1 {
+                background: linear-gradient(170deg, #e93347, #a0a2f5 120% 150%);
+              }
+            }
+          }
         }
         ::-webkit-scrollbar {
           width: 10px;
           background-color: transparent !important;
         }
-      .chat-footer{
-
-        box-sizing: border-box;
-        border: 1px solid #BACCFD;
       }
-      
 
+      .chat-footer {
+        box-sizing: border-box;
+        border: 1px solid #baccfd;
+      }
     }
   }
 }
 
+@media (max-width: 1050px) {
+  .game-container {
 
+    .h1 {
+
+    }
+    .chat-container {
+      display: none;
+      .conversations {
+        .conversation-header {
+          .chat-btn {
+          }
+          .groups-btn {
+          }
+        }
+
+        .search-div {
+          .search-icon {
+          }
+          .search-input {
+          }
+          ::placeholder {
+          }
+        }
+      }
+      ::-webkit-scrollbar {
+        width: 10px;
+        background-color: transparent !important;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #888;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+      }
+      -webkit-scrollbar-track {
+        background: #f1f1f1;
+      }
+      ::-webkit-scrollbar-track:hover {
+        background: #e0e0e0;
+      }
+      .chat {
+        .no-cnv {
+        }
+        .chat-header {
+          .left-container {
+            .left {
+              .user-name {
+              }
+              .cnx-status {
+              }
+            }
+          }
+          .right-container {
+            .t-point {
+            }
+          }
+        }
+        .chat-body {
+          .chat-message {
+            .tree-one {
+              .tree-two {
+                .msg {
+                }
+                .msg1 {
+                }
+              }
+            }
+          }
+          ::-webkit-scrollbar {
+            width: 10px;
+            background-color: transparent !important;
+          }
+        }
+
+        .chat-footer {
+        }
+      }
+    }
+  }
+
+}
+
+@keyframes slide {
+  to {
+   transform: translateY(0%);
+  }
+}

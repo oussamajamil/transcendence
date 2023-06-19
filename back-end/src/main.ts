@@ -20,6 +20,8 @@ async function bootstrap() {
   gatewayMessage.server = app.getHttpServer();
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
+
+  //  static file 
   await app.listen(3000);
 }
 bootstrap();

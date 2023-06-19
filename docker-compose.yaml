@@ -1,8 +1,8 @@
 version: "3.7"
 services:
-  postgres:
-    image: postgres
-    container_name: postgres
+  postgrestr:
+    image: postgres:11.1
+    restart: always
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -13,7 +13,7 @@ services:
       - 5432:5432
   
   # frontend:
-  #   build: 
+  #   build:
   #     context: ./front-end
   #     dockerfile: Dockerfile
   #   container_name: frontend
