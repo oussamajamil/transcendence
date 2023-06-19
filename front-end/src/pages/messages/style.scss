@@ -86,10 +86,10 @@
       background: #555;
     }
     -webkit-scrollbar-track {
-      background: #f1f1f1;
+      background: #333;
     }
     ::-webkit-scrollbar-track:hover {
-      background: #e0e0e0;
+      background: #333;
     }
     .chat {
       border: 1px solid #baccfd;
@@ -179,89 +179,89 @@
   }
 }
 
-@media (max-width: 1050px) {
-  .game-container {
+// @media (max-width: 1050px) {
+//   .game-container {
 
-    .h1 {
+//     .h1 {
 
-    }
-    .chat-container {
-      display: none;
-      .conversations {
-        .conversation-header {
-          .chat-btn {
-          }
-          .groups-btn {
-          }
-        }
+//     }
+//     .chat-container {
+//       display: none;
+//       .conversations {
+//         .conversation-header {
+//           .chat-btn {
+//           }
+//           .groups-btn {
+//           }
+//         }
 
-        .search-div {
-          .search-icon {
-          }
-          .search-input {
-          }
-          ::placeholder {
-          }
-        }
-      }
-      ::-webkit-scrollbar {
-        width: 10px;
-        background-color: transparent !important;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #888;
-        border-radius: 4px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #555;
-      }
-      -webkit-scrollbar-track {
-        background: #f1f1f1;
-      }
-      ::-webkit-scrollbar-track:hover {
-        background: #e0e0e0;
-      }
-      .chat {
-        .no-cnv {
-        }
-        .chat-header {
-          .left-container {
-            .left {
-              .user-name {
-              }
-              .cnx-status {
-              }
-            }
-          }
-          .right-container {
-            .t-point {
-            }
-          }
-        }
-        .chat-body {
-          .chat-message {
-            .tree-one {
-              .tree-two {
-                .msg {
-                }
-                .msg1 {
-                }
-              }
-            }
-          }
-          ::-webkit-scrollbar {
-            width: 10px;
-            background-color: transparent !important;
-          }
-        }
+//         .search-div {
+//           .search-icon {
+//           }
+//           .search-input {
+//           }
+//           ::placeholder {
+//           }
+//         }
+//       }
+//       ::-webkit-scrollbar {
+//         width: 10px;
+//         background-color: transparent !important;
+//       }
+//       ::-webkit-scrollbar-thumb {
+//         background: #888;
+//         border-radius: 4px;
+//       }
+//       ::-webkit-scrollbar-thumb:hover {
+//         background: #555;
+//       }
+//       -webkit-scrollbar-track {
+//         background: #f1f1f1;
+//       }
+//       ::-webkit-scrollbar-track:hover {
+//         background: #e0e0e0;
+//       }
+//       .chat {
+//         .no-cnv {
+//         }
+//         .chat-header {
+//           .left-container {
+//             .left {
+//               .user-name {
+//               }
+//               .cnx-status {
+//               }
+//             }
+//           }
+//           .right-container {
+//             .t-point {
+//             }
+//           }
+//         }
+//         .chat-body {
+//           .chat-message {
+//             .tree-one {
+//               .tree-two {
+//                 .msg {
+//                 }
+//                 .msg1 {
+//                 }
+//               }
+//             }
+//           }
+//           ::-webkit-scrollbar {
+//             width: 10px;
+//             background-color: transparent !important;
+//           }
+//         }
 
-        .chat-footer {
-        }
-      }
-    }
-  }
+//         .chat-footer {
+//         }
+//       }
+//     }
+//   }
 
-}
+// }
 
 @keyframes slide {
   to {
