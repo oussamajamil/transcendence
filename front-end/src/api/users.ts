@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const getConversation = async (login: string) => {
+const getConversation = async (id: string) => {
   const respons = await axios.get("/channel", {
     params: {
       where: JSON.stringify({
@@ -8,7 +8,7 @@ const getConversation = async (login: string) => {
         members: {
           some: {
             user: {
-              login: login,
+              id: id,
             },
           },
         },
@@ -18,7 +18,7 @@ const getConversation = async (login: string) => {
       }),
     },
   });
-  return respons.data;
+  return respons.data.results;
 };
 
 export { getConversation };

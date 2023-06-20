@@ -1,6 +1,5 @@
 import React from "react";
 import "./conversationList.scss";
-import { ReactComponent as ConvImage } from "../../assets/hero5.svg";
 import { ReactComponent as Online } from "../../assets/online.svg";
 import { Avatar } from "rsuite";
 import img from "../../assets/hero5.png";

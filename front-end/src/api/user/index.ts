@@ -13,14 +13,14 @@ export type Params = {
 };
 
 export const getUsers = async (params: Params = {}) => {
-  // const { page = 1, limit = 20, where = {}, include = {} } = params;
+  const { page = 1, limit = 20, where = {}, include = {} } = params;
   const response = await axios.get("/users", {
-    // params: {
-    //   take: limit,
-    //   skip: (page - 1) * limit,
-    //   where: JSON.stringify(where),
-    //   include: JSON.stringify(include),
-    // },
+    params: {
+      take: limit,
+      skip: (page - 1) * limit,
+      where: JSON.stringify(where),
+      include: JSON.stringify(include),
+    },
   });
   return response.data;
 };

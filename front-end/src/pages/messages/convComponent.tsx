@@ -4,6 +4,8 @@ import "./style.scss";
 import { ReactComponent as LoopeIcon } from "../../assets/loopicon.svg";
 import ConversationListPage from "./conversationList";
 import GroupsList from "./groupsList";
+import { getConversation } from "../../api/users";
+import { useQuery } from "@tanstack/react-query";
 
 const ConversationComponent = () => {
   const [Color1, setColor1] = useState("#fff");
@@ -20,7 +22,19 @@ const ConversationComponent = () => {
     setTab(!tab);
   };
 
-  const [messages, setMessages] = useState([
+  const con = useQuery({
+    queryKey: ["conv"],
+    queryFn: async () =>
+      await (
+        await getConversation("0c5ec8b2-9fed-4652-863c-a7bd61ed7455")
+      ),
+  });
+
+// console.log(con.data.map)
+
+
+
+  const [messages] = useState([
     {
       id: 1,
       name: "dfckzcldnscxzsfgksfgk;sdjkfgjksd",
@@ -105,7 +119,7 @@ const ConversationComponent = () => {
     },
   ]);
 
-  const [groups, setGroups] = useState([
+  const [groups] = useState([
     {
       id: 111,
       name: "dfckzcldnscxzsfgksfgk;sdjkfgjksd",
@@ -191,7 +205,9 @@ const ConversationComponent = () => {
   ]);
 
   return (
-    <div className="conversations !w-[900px] rounded-[30px]  flex  flex-col  h-[100%] bg-[#333248] overflow-hidden ">
+
+    <div className="conversations !w-[900px] rounded-[30px]  flex  flex-col  h-[100%] bg-[#fff] overflow-hidden ">
+      {JSON.stringify(con.data[0])}
       <div className="conversation-header w-[100%] h-[8rem] bg-[#333248] flex justify-evenly ">
         <button
           className=" chat-btn !text-lg "

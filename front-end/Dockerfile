@@ -1,19 +1,21 @@
-FROM node:18-alpine
+# Use an official Node.js base image
+FROM node:latest
 
+# Set the working directory in the container
 WORKDIR /app
 
-# ARG AUTH_API
-# ARG BACK_API
+# Copy package.json and package-lock.json to the container
+COPY ./package*.json ./
 
-COPY package*.json .
-
-RUN npm install --force
-RUN npm install serve -g
+# Copy the rest of the application code to the container
 COPY . .
 
-# ENV VITE_AUTH_API=${AUTH_API}
-# ENV VITE_BACK_API=${BACK_API}
-# RUN yarn build
+# Install dependencies
+RUN npm install
+
+
+# Expose the port that the app will run on
 EXPOSE 8080
-# CMD ["serve", "-s", "dist" , "-l", "tcp://0.0.0.0:8081"]
-CMD [ "yarn","dev" ]
+
+# Start the app
+CMD ["npm", "start"]

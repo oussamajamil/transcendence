@@ -81,7 +81,7 @@ model User {
   membership      Membership[]        @relation("channel_member")
   messages        Message[]           @relation("user_messages")
   achievements    AchievementProgress[]
-  rank            rank?                @relation(fields: [rankId], references: [id])
+  rank            Rank?                @relation(fields: [rankId], references: [id])
   rankId          String?              @map("rank_id")
 
   createdAt DateTime      @default(now()) @map("created_at")
@@ -134,7 +134,7 @@ model AchievementProgress {
   @@map("achievement_progress")
 }
 
-model rank{
+model Rank{
   id String @id @default(uuid())
   name String @unique
   requiredPoints Int @map("required_points")

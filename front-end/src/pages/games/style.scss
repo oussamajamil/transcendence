@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Lilita+One&family=Purple+Purse&family=Righteous&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Lilita+One&family=Purple+Purse&family=Righteous&display=swap");
 
 $blue: #1657ff;
 $red: #ff1010;
@@ -13,164 +13,163 @@ $red: #ff1010;
   margin-inline: auto;
   position: relative;
 
-          .h1 {
-            font-size: 1.875rem;
-            font-family: "Righteous", cursive;
-            letter-spacing: 1.5px;
-            position: absolute;
-            font-weight: 400;
-            color: #353e6c;
-            top: 1%;
-            left: 15px;
-          }
-          .game-modes {
-            border: solid 4px #f4f6ff;
-            background: linear-gradient(
-              0deg,
-              rgba(255, 255, 255, 1) 0%,
-              rgba(236, 238, 254, 1) 100%
-            );
-            position: relative;
-            overflow: hidden;
-                  .bg-image {
-                    min-width: 500px;
-                    background-image: url("../../assets/bg-game.svg");
-                    background-repeat: no-repeat;
-                    background-size: contain;
-                    background-position: bottom left;
-                    object-fit: cover;
-                    position: absolute;
-                    pointer-events: none;
-                  }
+  .titel {
+    font-size: 1.875rem;
+    font-family: "Righteous", cursive;
+    letter-spacing: 1.5px;
+    position: absolute;
+    font-weight: 400;
+    color: #353e6c;
+    top: 1%;
+    left: 15px;
+    animation: slide 1.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+    transform: translateX(-100%);
+  }
+  .game-modes {
+    border: solid 4px #f4f6ff;
+    background: linear-gradient(
+      0deg,
+      rgba(255, 255, 255, 1) 0%,
+      rgba(236, 238, 254, 1) 100%
+    );
+    position: relative;
+    overflow: hidden;
+    .bg-image {
+      min-width: 500px;
+      background-image: url("../../assets/bg-game.svg");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: bottom left;
+      object-fit: cover;
+      position: absolute;
+      pointer-events: none;
+    }
 
-                  .plytxt {
-                    font-size: 4rem;
-                    // font-family: "Righteous", cursive;
-                    // letter-spacing: 0.02em;
-                    // color: #2f2e41;
-                    // font-style: normal;
-                    // font-weight: 400;
-                    // line-height: 180.5%;
-                    // text-align: justify;
-                  }
+    .plytxt {
+      font-size: 4rem;
+      // font-family: "Righteous", cursive;
+      // letter-spacing: 0.02em;
+      // color: #2f2e41;
+      // font-style: normal;
+      // font-weight: 400;
+      // line-height: 180.5%;
+      // text-align: justify;
+    }
 
-                  .input {
-                    background-color: #e0e5ff;
-                    height: 3.75rem;
-                    border-radius: 3.125rem;
-                  }
-                  ::placeholder {
-                    color: #7a9bf8;
-                    position: absolute;
-                    display: flex;
-                    width: 17.178rem;
-                    height: 1.124rem;
-                    left: calc(50% - 17.178rem / 2 - 2.536);
-                    top: calc(50% - 1.124rem / 2 - 0.5px);
-                  }
+    .input {
+      background-color: #e0e5ff;
+      height: 3.75rem;
+      border-radius: 3.125rem;
+    }
+    ::placeholder {
+      color: #7a9bf8;
+      position: absolute;
+      display: flex;
+      width: 17.178rem;
+      height: 1.124rem;
+      left: calc(50% - 17.178rem / 2 - 2.536);
+      top: calc(50% - 1.124rem / 2 - 0.5px);
+    }
 
-                  .btn-add{
+    .btn-add {
+      text-align: center;
+      width: 1.016rem;
+      height: 1.016rem;
 
-                      text-align: center;
-                      width: 1.016rem;
-                      height: 1.016rem;
+      border-radius: 100%;
+      background-color: #fff;
 
-                      border-radius: 100%;
-                      background-color: #FFF;
+      color: #1657ff;
+      font-size: 1rem;
+    }
 
-                      color: #1657FF;
-                      font-size: 1rem;
-                  }
+    .back-btn {
+      box-sizing: border-box;
+      width: 8.375rem;
+      height: 2.5rem;
+      background: #e0e5ff;
+      border: 1px solid #7a9bf8;
+      border-radius: 3.125rem;
+      .goback {
+        font-family: "Purple Purse";
+        font-style: normal;
+        display: inline-block;
+        font-weight: 400;
+        font-size: 2.063rem;
+        line-height: 2.563rem;
+        letter-spacing: 0.5px;
+        color: #7299ff;
+        transform: translateY(2px);
+      }
 
-                  .back-btn{
-                    box-sizing: border-box;
-                    width: 8.375rem;
-                    height: 2.5rem;
-                    background: #E0E5FF;
-                    border: 1px solid #7A9BF8;
-                    border-radius: 3.125rem;
-                      .goback{
-                        font-family: 'Purple Purse';
-                        font-style: normal;
-                        display: inline-block;
-                        font-weight: 400;
-                        font-size: 2.063rem;
-                        line-height: 2.563rem;
-                        letter-spacing: 0.5px;
-                        color: #7299FF;
-                        transform: translateY(2px);
-                      }
-                  
-                      .goback-txt{
-                        font-family: 'Poppins';
-                        font-style: normal;
-                        font-weight: 500;
-                        font-size: 0.938rem;
-                        line-height: 1.375rem;
-                        letter-spacing: 0.5px;
-                  
-                        color: #7299FF;
-                      }
+      .goback-txt {
+        font-family: "Poppins";
+        font-style: normal;
+        font-weight: 500;
+        font-size: 0.938rem;
+        line-height: 1.375rem;
+        letter-spacing: 0.5px;
 
-                  }
+        color: #7299ff;
+      }
+    }
 
+    .span {
+      font-size: 1rem;
+      font-family: "Righteous", cursive;
+      letter-spacing: 0.02em;
+      font-weight: 400;
+      color: #1657ff;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 180.5%;
+      text-align: justify;
+      cursor: pointer;
+    }
 
-                  .span{
-                      font-size: 1rem;
-                      font-family: "Righteous", cursive;
-                      letter-spacing: 0.02em;
-                      font-weight: 400;
-                      color: #1657FF;
-                      font-style: normal;
-                      font-weight: 400;
-                      line-height: 180.5%;
-                      text-align: justify;
-                      cursor: pointer;
-                  }
+    .btn-dev {
+      background: #1657ff;
+      box-shadow: 0px 7px 10px rgba(22, 87, 255, 0.25);
+    }
 
-                  .btn-dev{
-                      background: #1657FF;
-                      box-shadow: 0px 7px 10px rgba(22, 87, 255, 0.25);
-                  }
+    .mode-pos {
+      .modes {
+        @include flexa;
+        flex-direction: column;
+        .rakita {
+          min-width: 100%;
+        }
+        svg {
+          width: 100%;
+          height: 100%;
+          cursor: pointer;
+        }
+      }
 
-                  .mode-pos {
-                        .modes {
-                          @include flexa;
-                          flex-direction: column;
-                          .rakita {
-                            min-width: 100%;
-                          }
-                          svg {
-                            width: 100%;
-                            height: 100%;
-                            cursor: pointer;
-                          }
-                        }
+      .btn {
+        padding: 20px 50px;
+        margin-top: 20px;
+        outline: none;
+        border: 0;
+        font-size: 1.8rem;
+        font-family: "Righteous", cursive;
+        letter-spacing: 1.5px;
+        border-radius: 40px;
+        color: #ffffff;
+        cursor: pointer;
+      }
 
-                        .btn {
-                          padding: 20px 50px;
-                          margin-top: 20px;
-                          outline: none;
-                          border: 0;
-                          font-size: 1.8rem;
-                          font-family: "Righteous", cursive;
-                          letter-spacing: 1.5px;
-                          border-radius: 40px;
-                          color: #ffffff;
-                          cursor: pointer;
-                        }
-
-                        .play-1 {
-                          background-color: $red;
-                        }
-                        .play-2 {
-                          background-color: $blue;
-                        }
-                        .play-3 {
-                          background-color: #2b2b2b;
-                        }
-                  }
-          }
+      .play-1 {
+        background-color: $red;
+      }
+      .play-2 {
+        background-color: $blue;
+      }
+      .play-3 {
+        background-color: #2b2b2b;
+      }
+    }
+  }
 }
 
 @media (max-width: 920px) {
@@ -222,59 +221,63 @@ $red: #ff1010;
 
 @media (max-width: 1200px) {
   .game-container {
-            .h1 {
-            }
-            .game-modes {
-                    .bg-image {
-                    }
-  
-                    .plytxt {
-                      font-size: 2rem;
-                    }
-  
-                    .input {
-                      width: 200px;
-                    }
-                    ::placeholder {
-                    }
-  
-                    .btn-add{
-                    }
-  
-                    .back-btn{
-                        .goback{
-                        }
-                    
-                        .goback-txt{
-                        }
-  
-                    }
-  
-  
-                    .span{
-                    }
-  
-                    .btn-dev{
-                    }
-  
-                    .mode-pos {
-                          .modes {
-                            .rakita {
-                            }
-                            svg {
-                            }
-                          }
-  
-                          .btn {
-                          }
-  
-                          .play-1 {
-                          }
-                          .play-2 {
-                          }
-                          .play-3 {
-                          }
-                    }
-            }
+    .h1 {
+    }
+    .game-modes {
+      .bg-image {
+      }
+
+      .plytxt {
+        font-size: 2rem;
+      }
+
+      .input {
+        width: 200px;
+      }
+      ::placeholder {
+      }
+
+      .btn-add {
+      }
+
+      .back-btn {
+        .goback {
+        }
+
+        .goback-txt {
+        }
+      }
+
+      .span {
+      }
+
+      .btn-dev {
+      }
+
+      .mode-pos {
+        .modes {
+          .rakita {
+          }
+          svg {
+          }
+        }
+
+        .btn {
+        }
+
+        .play-1 {
+        }
+        .play-2 {
+        }
+        .play-3 {
+        }
+      }
+    }
+  }
+}
+
+@keyframes slide {
+  to {
+   transform: translateY(0%);
   }
 }

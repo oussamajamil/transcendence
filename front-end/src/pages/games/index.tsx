@@ -14,7 +14,7 @@ function GamePage() {
   if (mode === 0) {
     page = (
       <div className="game-container w-[100%] h-[100%] bg-[#FFFFFF] rounded-[50px] flex items-center justify-center flex-col ">
-        <h1 className=" h1 ">Game</h1>
+        <h1 className=" titel ">Game</h1>
         <div className="game-modes w-[100%] max-w-[80vw] h-[75%] flex items-center justify-center bg-[#FFF] rounded-[63px] ">
           <div className="bg-image w-[100%] h-[100%] rounded-[50px] opacity-50 z-1 "></div>
           <div className="mode-pos flex items-center justify-center flex-wrap gap-[12rem]  ">

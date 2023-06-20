@@ -166,7 +166,7 @@ const [socket, setSocket] = useState<{
   }>({} as any);
 
   useEffect(() => {
-    const socket = io("http://localhost:3000");
+    const socket = io("http://localhost:3001");
     setSocket(socket as any);
     socket.on("connect", () => {
       console.log("connected");

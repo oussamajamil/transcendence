@@ -1,0 +1,21 @@
+
+.add{
+    animation: slide 1.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards ;
+    transform: translateY(-100%);
+}
+
+.invt{
+    animation: slide 1.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards ;
+    transform: translateX(-100%);
+}
+
+.flist{
+    animation: slide 1.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards ;
+    transform: translateY(-100%);
+}
+
+@keyframes slide {
+  to {
+   transform: translateY(0%);
+  }
+}

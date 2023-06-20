@@ -4,6 +4,7 @@ import { player1, player2 } from "../../utils/data";
 import { Toggle } from "rsuite";
 import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "../../api/user/index";
+import "./style.scss"
 
 function FriendsPage() {
   const currentUser = useQuery({
@@ -21,7 +22,7 @@ function FriendsPage() {
       <div className="flex flex-col w-[30%] gap-10 max-h-full">
         <div className="px-[20px] py-[10px] flex flex-col w-full h-[200px] bg-white rounded-3xl gap-3">
           <div>
-            <h1 className="text-[2rem] text-[#353E6C] font-['Lilita One'] font-black">
+            <h1 className="text-[2rem] text-[#353E6C] font-['Lilita One'] font-black add ">
               Add Friend
             </h1>
           </div>
@@ -38,7 +39,7 @@ function FriendsPage() {
         </div>
         <div className="flex flex-col rounded-3xl py-[10px] max-h-[70%] bg-white gap-5 overflow-hidden">
           <div>
-            <h1 className="text-[2rem] text-[#353E6C] font-['Lilita One'] font-black pl-[20px]">
+            <h1 className="text-[2rem] text-[#353E6C] font-['Lilita One'] font-black pl-[20px] invt">
               Invitations
             </h1>
           </div>
@@ -78,7 +79,7 @@ function FriendsPage() {
       </div>
       <div className="flex flex-col items-center flex-1 gap-2 bg-white rounded-3xl p-[10px]">
         <div>
-          <h1 className="text-[2rem] text-[#353E6C] font-['Lilita One'] font-black">
+          <h1 className="text-[2rem] text-[#353E6C] font-['Lilita One'] font-black flist">
             Friends List
           </h1>
         </div>
