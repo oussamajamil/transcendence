@@ -1,19 +1,18 @@
-FROM node:18-alpine
+FROM node
 
 WORKDIR /app
 
 # ARG AUTH_API
 # ARG BACK_API
 
-COPY package*.json .
+# COPY package*.json ./
+# RUN npm i --force
 
-RUN npm install --force
-RUN npm install serve -g
-COPY . .
+RUN npm install -g npm@latest
+RUN npm i -g yarn
+COPY package*.json ./
+RUN yarn --force
 
-# ENV VITE_AUTH_API=${AUTH_API}
-# ENV VITE_BACK_API=${BACK_API}
-# RUN yarn build
-EXPOSE 8080
-# CMD ["serve", "-s", "dist" , "-l", "tcp://0.0.0.0:8081"]
+COPY ./ ./
+EXPOSE 8083
 CMD [ "yarn","dev" ]

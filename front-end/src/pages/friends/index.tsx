@@ -3,18 +3,18 @@ import { userType } from "../../utils/types";
 import { player1, player2 } from "../../utils/data";
 import { Toggle } from "rsuite";
 import { useQuery } from "@tanstack/react-query";
-import { getUser, getUsers } from "../../api/user";
+// import { getUser, getUsers } from "../../api/user";
 
 function FriendsPage() {
-  const currentUser = useQuery({
-    queryKey: ["currentUser"],
-    queryFn: () =>
-      getUsers({
-        where: { username: "kcriple0" },
-      }),
-  });
+  // const currentUser = useQuery({
+  //   queryKey: ["currentUser"],
+  //   queryFn: () =>
+  //     getUsers({
+  //       where: { username: "kcriple0" },
+  //     }),
+  // });
 
-  console.log({ currentUser });
+  // console.log({ currentUser });
 
   return (
     <div className="w-[90%] h-[90%] mx-auto flex gap-10">

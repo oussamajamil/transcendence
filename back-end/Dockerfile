@@ -1,11 +1,29 @@
+# FROM node:latest
+# WORKDIR /usr/src/app
+# 
+# COPY package*.json ./
+# RUN yarn 
+# # RUN npm i -g prisma
+# COPY ./ ./
+# RUN yarn generate:postgres 
+# # RUN yarn build 
+# EXPOSE 3000
+# CMD  yarn dev
+
+
 FROM node:latest
-WORKDIR /usr/src/app
-RUN npm i -g --force yarn 
+
 COPY package*.json ./
-RUN yarn 
-# RUN npm i -g prisma
+
+RUN npm i --force
+
+RUN 
+RUN npm i --save @prisma/client
+
+
 COPY ./ ./
-RUN yarn generate:postgres 
-# RUN yarn build 
+
+RUN npx prisma generate
 EXPOSE 3000
-CMD  yarn dev
+CMD  npx prisma migrate dev --name init && npm run dev
+

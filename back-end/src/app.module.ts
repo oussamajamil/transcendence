@@ -20,7 +20,7 @@ import { join } from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
 @Module({
   imports: [
-    ConfigModule.forRoot(),
+    // ConfigModule.forRoot(),
     MulterModule.register({
       dest: './uploads', // Specify the destination directory for uploaded files
     }),
