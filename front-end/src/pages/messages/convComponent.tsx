@@ -30,7 +30,7 @@ const ConversationComponent = () => {
       ),
   });
 
-// console.log(con.data.map)
+
 
 
 
@@ -207,7 +207,6 @@ const ConversationComponent = () => {
   return (
 
     <div className="conversations !w-[900px] rounded-[30px]  flex  flex-col  h-[100%] bg-[#fff] overflow-hidden ">
-      {JSON.stringify(con.data[0])}
       <div className="conversation-header w-[100%] h-[8rem] bg-[#333248] flex justify-evenly ">
         <button
           className=" chat-btn !text-lg "
