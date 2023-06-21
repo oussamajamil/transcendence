@@ -15,6 +15,11 @@ const getConversation = async (id: string) => {
       }),
       include: JSON.stringify({
         messages: true,
+        members: {
+          include: {
+            user: true,
+          },
+        },
       }),
     },
   });

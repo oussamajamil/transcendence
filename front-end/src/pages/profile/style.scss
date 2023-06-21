@@ -1,0 +1,70 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&family=Lilita+One&family=Purple+Purse&family=Righteous&display=swap");
+
+.h1 {
+  font-family: "Lilita One", cursive;
+  color: #353e6c;
+  font-size: 2.3rem;
+  font-weight: 700;
+  animation: slide 1.8s cubic-bezier(0.365, 0.84, 0.44, 1) forwards;
+  transform: translateY(-180%);
+  margin: 0;
+}
+
+span {
+    font-family: "Poppins", sans-serif;
+    color: #1657ff;
+    font-size: 1em;
+  }
+
+
+  .dropProfil {
+    z-index: 90;
+    position: absolute;
+    width: 180px;
+    height: auto;
+    top: 3rem;
+    right: 0;
+    border: 2px solid #fff;
+    border-radius: 20px;
+    background: #f4f6ff;
+    box-shadow: 0 5px 15px #1830552a;
+    overflow: hidden;
+    display: none;
+    opacity: 1;
+    transform: translateY(-10%);
+
+    
+}
+
+.dropProfil.active {
+    display: inline-block;
+}
+
+
+.reset {
+  transform: translateX(-50%);
+}
+
+
+.percent{
+  text-shadow: 0 0 5px #000;
+}
+
+
+.achiev::-webkit-scrollbar {
+  width: 10px;
+  background-color: transparent !important;
+}
+.achiev::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+.achiev::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+-webkit-scrollbar-track {
+  background: #333;
+}
+.achiev::-webkit-scrollbar-track:hover {
+  background: #333;
+}

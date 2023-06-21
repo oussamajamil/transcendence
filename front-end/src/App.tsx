@@ -69,7 +69,7 @@ function App() {
   return (
     <>
       <div
-        className={`flex min-h-[100vh] min-w-[100vw] overflow-auto ${
+        className={`flex min-h-[100vh] min-w-[100vw] bg-[#F4F5F7] overflow-auto ${
           window.location.pathname === "/login" ? "background" : ""
         }`}
       >
