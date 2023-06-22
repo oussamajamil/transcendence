@@ -24,10 +24,10 @@ console.log(con.data)
         <div className="w-full h-[3rem]  box-border flex items-center justify-start ">
             <h1 className=" titel box-border h-[60px] ">Chat / Messages</h1>
         </div>
-        <div className=" chat-container  flex items-center justify-center gap-[3rem] w-[95%] h-[90%] py-4   ">
+         <div className=" chat-container  flex items-center justify-center gap-[3rem] w-[95%] h-[90%] py-4   ">
           <ConversationComponent />
           <ChatComponent />
-        </div>
+        </div> 
       </div>
     </div>
   );
