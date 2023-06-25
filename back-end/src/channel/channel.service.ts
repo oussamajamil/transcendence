@@ -4,6 +4,7 @@ import { UpdateChannelDto } from './dto/update-channel.dto';
 import { PrismaService } from 'src/prisma.service';
 import { findAll } from 'src/resources/interfaces/findAlll';
 import { findAllDecorator } from 'src/resources/decorator';
+import { identity } from 'rxjs';
 
 @Injectable()
 export class ChannelService {
@@ -67,21 +68,36 @@ export class ChannelService {
     });
   }
 
-  // async testApi() {
-  //   const res = await this.prisma.channel.findMany({
-  //     where: {
-  //       type: 'DM',
-  //       members: {
-  //         some: {
-  //           user: {
-  //             login: 'test',
-  //           },
-  //         },
-  //       },
-  //     },
-  //     include: {
-  //       messages: true,
-  //     },
-  //   });
-  // }
+  async testApi() {
+    const res = await this.prisma.channel.findMany({
+      where: {
+        type: 'DM',
+        members: {
+          some: {
+            user: {
+              id: '0c5ec8b2-9fed-4652-863c-a7bd61ed7455',
+            },
+          },
+        },
+      },
+      include: {
+        members: {
+          orderBy: {
+            updatedAt: 'desc',
+          },
+          where: {
+            NOT: {
+              userId: '0c5ec8b2-9fed-4652-863c-a7bd61ed7455',
+            },
+          },
+        },
+        messages: {
+          orderBy: {
+            createdAt: 'desc',
+          },
+          take: 1,
+        },
+      },
+    });
+  }
 }

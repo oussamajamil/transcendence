@@ -40,7 +40,7 @@ export class MessagesGateway implements OnGatewayInit {
   }
 
   @SubscribeMessage('message')
-  handleMessage(
+  async handleMessage(
     client: any,
     payload: {
       userId: string;
@@ -48,14 +48,25 @@ export class MessagesGateway implements OnGatewayInit {
       message: string;
     },
   ) {
-    console.log('Received message', payload);
-    this.prisma.message.create({
+    console.log({
+      payload,
+    });
+    const message = await this.prisma.message.create({
       data: {
         content: payload.message,
-        groupId: payload.channelId,
-        userId: payload.userId,
+        channel: {
+          connect: {
+            id: payload.channelId,
+          },
+        },
+        user: {
+          connect: {
+            id: payload.userId,
+          },
+        },
       },
     });
+    console.log(message);
     client.to(payload.channelId).emit('message', payload);
   }
 
@@ -74,3 +85,44 @@ export class MessagesGateway implements OnGatewayInit {
     }
   }
 }
+
+// import {
+//   WebSocketGateway,
+//   WebSocketServer,
+//   SubscribeMessage,
+//   MessageBody,
+//   OnGatewayConnection,
+//   OnGatewayDisconnect,
+// } from '@nestjs/websockets';
+// import { Server, Socket } from 'socket.io';
+// // import { PrismaService } from './prisma.service';
+// // import { Message } from './message.model';
+
+// @WebSocketGateway()
+// export class ChatGateway implements OnGatewayConnection, OnGatewayDisconnect {
+//   @WebSocketServer()
+//   server: Server;
+
+//   connectedClients: number = 0;
+
+//   constructor(private prisma: PrismaService) {}
+
+//   handleConnection(client: Socket) {
+//     this.connectedClients++;
+//     this.server.emit('clients', this.connectedClients);
+//   }
+
+//   handleDisconnect(client: Socket) {
+//     this.connectedClients--;
+//     this.server.emit('clients', this.connectedClients);
+//   }
+
+//   @SubscribeMessage('chat')
+//   async handleMessage(@MessageBody() data: string): Promise<string> {
+//     const message: Message = { content: data };
+//     await this.prisma.message.create({ data: message });
+
+//     this.server.emit('chat', data);
+//     return data;
+//   }
+// }

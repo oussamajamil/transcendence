@@ -25,7 +25,7 @@ function ProfileCart() {
         {
           image: iron,
           title: "achave name",
-          text: "Triumph as iron, conquer with fire. Rise, overcome, aspire higher.",
+          text: "Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.",
         },
         {
           image: bronze,
@@ -44,7 +44,7 @@ function ProfileCart() {
         },
         {
           image: plat,
-          title: "achave nameuim",
+          title: "achave name",
           text: "Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.",
         },
         {
@@ -59,7 +59,7 @@ function ProfileCart() {
         },
         {
           image: goldenknight,
-          title: "achave name-Knight",
+          title: "achave name",
           text: "Lorem Ipsum lorepator who desiorel mundo la cupa dilaperva mostafaesti mulaca abepsum dolerum casa.",
         },
         {
@@ -77,8 +77,8 @@ function ProfileCart() {
 
   return (
     <div className=" w-[75%] h-[90%] rounded-[30px] bg-white shadow-xl min-w-[600px] overflow-hidden ">
-      <div className="  flex items-center justify-between w-[100%]   flex-col  ">
-        <h1 className=" h1 w-[100%] max-w-[100px]  pl-4 ">Achievements</h1>
+      <div className="  flex  justify-between w-[100%]   flex-col  ">
+        <h1 className=" h1 w-[100%] max-w-[100px] pt-4  pl-4 ">Achievements</h1>
       </div>
       <div className=" achiev w-[100%] h-[90%] max-h-[1200px] flex items-center  justify-evenly flex-wrap  gap-4 overflow-scroll overflow-x-hidden   px-8 ">
         {achievementsData.map((achievement, index) => (

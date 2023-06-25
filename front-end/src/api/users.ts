@@ -4,21 +4,29 @@ const getConversation = async (id: string) => {
   const respons = await axios.get("/channel", {
     params: {
       where: JSON.stringify({
-        type: "DM",
         members: {
           some: {
             user: {
-              id: id,
+              id,
             },
           },
         },
       }),
       include: JSON.stringify({
-        messages: true,
         members: {
-          include: {
-            user: true,
+          where: {
+            NOT: {
+              user: {
+                id,
+              },
+            },
           },
+        },
+        messages: {
+          orderBy: {
+            createdAt: 'desc',
+          },
+          take: 1,
         },
       }),
     },

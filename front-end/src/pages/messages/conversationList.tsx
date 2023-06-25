@@ -5,14 +5,20 @@ import { Avatar } from "rsuite";
 import img from "../../assets/hero5.png";
 
 interface Props {
-  id: number;
+  id: string;
   name: string;
   message: string;
 }
 
 function ConversationListPage(props: Props) {
 
+  if (!props) return <div>Loading...</div>;
+
+  console.log("test111", props);
+
   let text = props.message;
+
+
   if (text.length > 20) {
     text = text.slice(0, 20) + "...";
   }

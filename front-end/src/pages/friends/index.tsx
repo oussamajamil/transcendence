@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import { userType } from "../../utils/types";
 import { player1, player2 } from "../../utils/data";
 import { Toggle } from "rsuite";
 import { useQuery } from "@tanstack/react-query";
 import { getUsers } from "../../api/user/index";
-import "./style.scss"
+import "./style.scss";
 
 function FriendsPage() {
   const currentUser = useQuery({
@@ -14,6 +14,12 @@ function FriendsPage() {
         where: { username: "kcriple0" },
       }),
   });
+
+  const [trigger, setTrigger] = useState(false);
+
+  const display = () => {
+    setTrigger(!trigger);
+  };
 
   console.log({ currentUser });
 
@@ -32,9 +38,20 @@ function FriendsPage() {
               placeholder="Enter a username"
               type="text"
             />
-            <button className="w-[70%] h-[3rem] text-center align-middle bg-[#1657FF] text-[0.9rem] text-white rounded-lg">
+            <button
+              className="w-[70%] h-[3rem] text-center align-middle bg-[#1657FF] text-[0.9rem] text-white rounded-lg"
+              onClick={display}
+            >
               Add a Friend
             </button>
+            <div
+              className={
+                trigger === false ? "notification" : "notification active"
+              }
+            >
+              <p> The Friend request has been sent.</p>
+              <span className="notification_progress"></span>
+            </div>
           </div>
         </div>
         <div className="flex flex-col rounded-3xl py-[10px] max-h-[70%] bg-white gap-5 overflow-hidden">

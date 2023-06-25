@@ -172,6 +172,22 @@ const createChannel = async () => {
       },
     },
   });
+  await prisma.channel.create({
+    data: {
+      name: 'channel2',
+      type: 'DM',
+      messages: {
+        create: {
+          content: 'hello from channel 2',
+          user: {
+            connect: {
+              login: 'sawab',
+            },
+          },
+        },
+      },
+    },
+  });
 };
 
 const createMembersShip = async () => {
@@ -192,7 +208,57 @@ const createMembersShip = async () => {
       type: 'MEMBER',
     },
   });
+  await prisma.membership.create({
+    data: {
+      user: {
+        connect: {
+          login: 'izouf',
+        },
+      },
+      channel: {
+        connect: {
+          id: channels[0].id,
+        },
+      },
+      status: 'ACTIVE',
+      type: 'MEMBER',
+    },
+  });
+  await prisma.membership.create({
+    data: {
+      user: {
+        connect: {
+          login: 'sawab',
+        },
+      },
+      channel: {
+        connect: {
+          id: channels[1].id,
+        },
+      },
+      status: 'ACTIVE',
+      type: 'MEMBER',
+    },
+  });
+  await prisma.membership.create({
+    data: {
+      user: {
+        connect: {
+          login: 'izouf',
+        },
+      },
+      channel: {
+        connect: {
+          id: channels[1].id,
+        },
+      },
+      status: 'ACTIVE',
+      type: 'MEMBER',
+    },
+  });
 };
+
+
 
 const messages = [
   {
