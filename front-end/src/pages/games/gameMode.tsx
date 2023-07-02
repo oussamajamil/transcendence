@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import { Bodies, Composite, Engine, Render, World, Body } from "matter-js";
+import { Game } from "./gameModel";
 import "./style.scss";
 
-let engine: Engine, render: Render, box1: Body
+let game: Game | null = null
 
 function GameModePage() {
   const [windowSize, setWindowSize] = useState({
@@ -31,8 +31,10 @@ function GameModePage() {
     const divElement: HTMLElement = divRef.current;
     if (divElement) {
       const { width, height } = divElement.getBoundingClientRect();
-      console.log("Width: " + width + "px");
-      console.log("Height: " + height + "px");
+      if (!game)
+        game = new Game(divElement, width)
+      else
+        game.respensivness(width)
     }
   }, [windowSize]);
 
