@@ -28,13 +28,13 @@ function GameModePage() {
   const divRef = useRef(null);
 
   useEffect(() => {
-    const divElement: HTMLElement = divRef.current;
+    const divElement: any = divRef.current;
     if (divElement) {
       const { width, height } = divElement.getBoundingClientRect();
       if (!game)
-        game = new Game(divElement, width)
+        game = new Game(divElement, width, height)
       else
-        game.respensivness(width)
+        game.respensivness(width, height)
     }
   }, [windowSize]);
 

@@ -16,7 +16,7 @@ export class Game{
 
 	widthLimit: number = 800
 
-	constructor(element: HTMLElement, width: number){
+	constructor(element: HTMLElement, width: number, height: number){
 		this.width = this.widthLimit
 		if (this.width < this.widthLimit)
 			this.width = width;
@@ -45,7 +45,7 @@ export class Game{
 		  Render.run(this.render);
 	}
 
-	respensivness(width: number){
+	respensivness(width: number, height: number){
 		this.width = this.widthLimit;
 		if (width < this.widthLimit)
 			this.width = width;
