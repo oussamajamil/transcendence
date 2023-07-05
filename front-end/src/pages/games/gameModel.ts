@@ -14,9 +14,11 @@ export class Game{
 	goalWidth: number = 180;
 	goalY: number = 25;
 
+	widthLimit: number = 800
+
 	constructor(element: HTMLElement, width: number){
-		this.width = 600
-		if (this.width < 600)
+		this.width = this.widthLimit
+		if (this.width < this.widthLimit)
 			this.width = width;
 		this.height = Math.round(width * 11 / 9)
 		console.log(this.width, this.height)
@@ -44,8 +46,8 @@ export class Game{
 	}
 
 	respensivness(width: number){
-		this.width = 600;
-		if (width < 600)
+		this.width = this.widthLimit;
+		if (width < this.widthLimit)
 			this.width = width;
 		this.height = Math.round(this.width * 11/9);
 		console.log(this.width, this.height)
