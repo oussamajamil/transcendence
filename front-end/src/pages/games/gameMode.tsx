@@ -31,7 +31,7 @@ function GameModePage() {
     const divElement: any = divRef.current;
     if (divElement) {
       const { width, height } = divElement.getBoundingClientRect();
-      if (!game)
+      if (game == null)
         game = new Game(divElement, width, height)
       else
         game.respensivness(width, height)

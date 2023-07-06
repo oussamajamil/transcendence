@@ -1,4 +1,4 @@
-import { Body, Engine, Render, Bodies, Composite } from "matter-js";
+import { Body, Engine, Render, Bodies, Composite, World } from "matter-js";
 
 export class Game{
 	engine: Engine;
@@ -9,19 +9,16 @@ export class Game{
 	racket1: Body;
 	racket2: Body;
 
-	height: number;
-	width: number;
-	goalWidth: number = 180;
+	height: number = 0;
+	width: number = 0;
+	goalWidth: number = 140;
 	goalY: number = 25;
 
 	widthLimit: number = 800
+	heightLimit: number = 800
 
 	constructor(element: HTMLElement, width: number, height: number){
-		this.width = this.widthLimit
-		if (this.width < this.widthLimit)
-			this.width = width;
-		this.height = Math.round(width * 11 / 9)
-		console.log(this.width, this.height)
+		this.setUpHW(width, height);
 		this.engine = Engine.create({gravity: {x: 0, y: 0}})
 		this.render = Render.create({
 			engine: this.engine,
@@ -46,11 +43,8 @@ export class Game{
 	}
 
 	respensivness(width: number, height: number){
-		this.width = this.widthLimit;
-		if (width < this.widthLimit)
-			this.width = width;
-		this.height = Math.round(this.width * 11/9);
-		console.log(this.width, this.height)
+		this.setUpHW(width, height);
+		console.log(this.width)
 		this.render.canvas.width = this.width;
         this.render.canvas.height = this.height;
         Body.setPosition(this.ball, {x: this.width / 2, y: this.height / 2})
@@ -67,4 +61,21 @@ export class Game{
 		return value * out_max / in_max;
 	}
 
+	destroy(): void{
+		World.clear(this.engine.world, false)
+		Engine.clear(this.engine);
+		Render.stop(this.render);
+		this.render.canvas.remove();
+	}
+
+	setUpHW(width: number, height: number): void{
+		this.width = this.widthLimit;
+		if (width < this.widthLimit)
+			this.width = width;
+		this.height = Math.round(this.width * 11 / 9);
+		if (height < this.height){
+			this.height = height;
+			this.width = Math.round(this.height * 9 / 11);
+		}
+	}
 }
