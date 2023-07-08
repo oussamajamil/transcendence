@@ -18,6 +18,7 @@ import { AuthModule } from './auth/auth.module';
 import { ConfigModule } from '@nestjs/config';
 import { join } from 'path';
 import { ServeStaticModule } from '@nestjs/serve-static';
+import { GameGetaway } from './game/game.gateway';
 @Module({
   imports: [
     // ConfigModule.forRoot(),
@@ -40,6 +41,6 @@ import { ServeStaticModule } from '@nestjs/serve-static';
     AuthModule,
   ],
   controllers: [],
-  providers: [PrismaService, MessagesGateway],
+  providers: [PrismaService, MessagesGateway, GameGetaway],
 })
 export class AppModule {}
